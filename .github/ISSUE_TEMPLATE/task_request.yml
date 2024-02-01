@@ -2,6 +2,7 @@ name: Task Request
 description: Describe the task you will work on
 title: "[Task]: "
 labels: ["task", "feature"]
+projects: ["week-1", "week-2"]
 assignees:
   - octocat
 body:
@@ -36,7 +37,7 @@ body:
     attributes:
       label: Provide at least one example of a similiar element in another game.
       description: Please list the game, how it relates and a URL to the game homepage.
-      render: info here
+      placeholder: info here
     validations:
       required: true
   - type: textarea
@@ -44,7 +45,7 @@ body:
     attributes:
       label: What is needed to implement the task?
       description: Please list any needed assets, including scripts, models, images, knowledge
-      render: donut model, fire particle system, fire on event script
+      placeholder: donut model, fire particle system, fire on event script
     validations:
       required: true
   - type: textarea
@@ -52,7 +53,7 @@ body:
     attributes:
       label: What is the biggest risk it will not get done?
       description: Be detailed, the more we understand the risks the smaller they are
-      render: I do not know how to trigger a particle system from a script
+      placeholder: I do not know how to trigger a particle system from a script
     validations:
       required: true
   - type: textarea
@@ -60,7 +61,7 @@ body:
     attributes:
       label: How do I know it is ready?
       description: Describe how you know the tasks is ready and working for merge. What behavior will be expected from the prototype?
-      render: fire will shoot out of the donut holes!
+      placeholder: fire will shoot out of the donut holes!
     validations:
       required: true
 
