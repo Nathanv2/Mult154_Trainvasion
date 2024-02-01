@@ -3,6 +3,7 @@ description: Describe the task you will work on
 title: "[Task]: "
 labels: ["task", "feature"]
 assignees:
+  - octocat
 body:
   - type: markdown
     attributes:
