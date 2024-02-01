@@ -44,6 +44,15 @@ body:
     attributes:
       label: What is needed to implement the task?
       description: Please list any needed assets, including scripts, models, images, knowledge
+      render: donut model, fire particle system, fire on event script
+    validations:
+      required: true
+  - type: textarea
+    id: risk-factor
+    attributes:
+      label: What is the biggest risk it will not get done?
+      description: Be detailed, the more we understand the risks the smaller they are
+      render: I do not know how to trigger a particle system from a script
     validations:
       required: true
   - type: textarea
@@ -51,6 +60,7 @@ body:
     attributes:
       label: How do I know it is ready?
       description: Describe how you know the tasks is ready and working for merge. What behavior will be expected from the prototype?
+      render: fire will shoot out of the donut holes!
     validations:
       required: true
 
