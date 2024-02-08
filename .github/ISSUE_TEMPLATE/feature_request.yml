@@ -16,14 +16,14 @@ body:
       label: Rubric Criteria
       description: Which part(s) of the rubric are you working on? Check all that apply
       options:
-        - Gameplay
-        - Graphics
-        - Design
-        - User Experience
-        - Scripting
-        - Sound
-        - Quality
-        - Process
+        - label: Gameplay
+        - label: Graphics
+        - label: Design
+        - label: User Experience
+        - label: Scripting
+        - label: Sound
+        - label: Quality
+        - label: Process
     validations:
       required: true
   - type: textarea
