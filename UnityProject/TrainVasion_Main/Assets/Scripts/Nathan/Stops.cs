@@ -5,23 +5,21 @@ using UnityEngine;
 public class Stops : MonoBehaviour
 {
     public PlayerController playerController;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
+    private float maxClickDistance = 7f;
 
     private void OnMouseDown()
     {
-        Vector3 StopPos = transform.position;
-        playerController.Teleport(StopPos);
+        float distanceToStop = Vector3.Distance(playerController.transform.position, transform.position);
+
+        if (distanceToStop <= maxClickDistance)
+        {
+            Vector3 stopPos = transform.position;
+            playerController.Transition(stopPos);
+        }
+        else
+        {
+            Debug.Log("Stop is too far to click.");
+        }
     }
 }
 

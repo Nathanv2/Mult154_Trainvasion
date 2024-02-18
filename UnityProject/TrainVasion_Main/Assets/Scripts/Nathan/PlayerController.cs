@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.PlasticSCM.Editor.WebApi;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rbPlayer;
-    public float movementSpeed = 5f;
+    private GameObject Player;
+    private float movementSpeed = 2.5f;
 
     private Vector3 targetPosition;
     private bool isMoving = false;
@@ -23,7 +25,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void Teleport(Vector3 NextStop)
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            transform.Rotate(0, -90, 0);
+            Debug.Log("A");
+        }else if(Input.GetKeyDown(KeyCode.D))
+        {
+            transform.Rotate(0, 90, 0);
+            Debug.Log("D");
+        }
+    }
+
+    public void Transition(Vector3 NextStop)
     {
         targetPosition = NextStop;
         isMoving = true;
