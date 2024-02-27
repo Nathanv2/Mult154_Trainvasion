@@ -47,9 +47,7 @@ body:
     attributes:
       label: What is needed to implement the task?
       description: Please list any needed assets, including scripts, models, images, knowledge
-      placeholder: - donut model
-      - fire particle system
-      - fire on event script
+      placeholder: donut model, fire particle system, fire on event script
     validations:
       required: true
   - type: textarea
@@ -65,10 +63,7 @@ body:
     attributes:
       label: Test case
       description:  Provide the steps it would take the user to reproduce the behavior
-      placeholder: 1) start game 
-      2) player hits 'W' to run towards donut. 
-      3) Player intersects with donut. 
-      4) Donut explodes, particle system triggered
+      placeholder: 1) start game.   2) player hits 'W' to run towards donut.   3) Player intersects with donut.   4) Donut explodes, particle system triggered
     validations:
       required: true
 
