@@ -37,8 +37,8 @@ body:
   - type: textarea
     id: inspiration
     attributes:
-      label: Visual
-      description: Please list the game, how it relates and a URL to the game homepage or upload your own image/sketch.
+      label: Visualization
+      description: Please list similar feature in another game, how it relates and a URL to the game homepage OR upload your own image/sketch.
       placeholder: info here
     validations:
       required: true
