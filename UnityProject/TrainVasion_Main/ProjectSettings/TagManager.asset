@@ -7,6 +7,15 @@ TagManager:
   - Unit
   - Tile
   - Stop
+  - 5 People
+  - 10 People
+  - 15 People
+  - Save Button
+  - Skip Button
+  - Saved
+  - Blockade 1
+  - Blockade 2
+  - Blockade 3
   layers:
   - Default
   - TransparentFX
