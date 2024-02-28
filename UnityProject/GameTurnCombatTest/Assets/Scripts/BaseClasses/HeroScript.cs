@@ -11,4 +11,5 @@ public class HeroScript : BaseClass
     public int dexterity;
     public int agility;
 
+    public List<BaseAttack> SpecialAttacks = new List<BaseAttack>();
 }

@@ -123,11 +123,11 @@ MonoBehaviour:
     currentDefense: 5
     attacks:
     - {fileID: 6308058222861786296, guid: cf81c0c46d5ddcb438c9995949b2ec3c, type: 3}
-    - {fileID: 8132082297857653121, guid: 19c20c96be4b4e44fa2cd35d8a36aa6d, type: 3}
     stamina: 10
     intellect: 10
     dexterity: 10
     agility: 10
+    SpecialAttacks: []
   currentState: 0
   Selector: {fileID: 5634173211056622943}
   EnemyToAttack: {fileID: 0}
