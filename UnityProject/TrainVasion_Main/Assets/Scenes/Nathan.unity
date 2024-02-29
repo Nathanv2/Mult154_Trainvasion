@@ -332,10 +332,10 @@ MonoBehaviour:
       - m_Target: {fileID: 549487440}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: pressedbutton
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Collider, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1573,6 +1573,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 492289316}
   m_CullTransparentMesh: 1
+--- !u!1 &526616480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 526616482}
+  - component: {fileID: 526616481}
+  m_Layer: 0
+  m_Name: Game Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &526616481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526616480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7ca335ac3ef6145aecaa40421d88eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &526616482
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526616480}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &549487439
 GameObject:
   m_ObjectHideFlags: 0
@@ -1606,8 +1650,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831eee5cff1a96b42a62db06327781c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 526616481}
   UImanager: {fileID: 1762901792}
   stop: []
+  test: {fileID: 0}
   buttonpressed: 0
 --- !u!54 &549487441
 Rigidbody:
@@ -4339,10 +4385,10 @@ MonoBehaviour:
       - m_Target: {fileID: 549487440}
         m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
         m_MethodName: pressedbutton
-        m_Mode: 1
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 549487439}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
