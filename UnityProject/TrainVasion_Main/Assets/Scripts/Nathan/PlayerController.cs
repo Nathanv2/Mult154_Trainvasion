@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public GameManager gameManager;
     public UIManager UImanager;
     private Rigidbody rbPlayer;
     private GameObject Player;
     public Stops[] stop;
+    public Collider test;
+    private GameObject stopObject;
 
     private float movementSpeed = 2.5f;
     private Vector3 targetPosition;
@@ -68,6 +71,8 @@ public class PlayerController : MonoBehaviour
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
             buttonpressed = false;
+
+            stopObject = other.gameObject;
             Debug.Log("Save 5 People or leave them to suffer!");
         }
         else if (other.gameObject.CompareTag("10 People"))
@@ -75,6 +80,7 @@ public class PlayerController : MonoBehaviour
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
             buttonpressed = false;
+            stopObject = other.gameObject;
             Debug.Log("Save 10 People or leave them to suffer!");
         }
         else if (other.gameObject.CompareTag("15 People"))
@@ -82,6 +88,7 @@ public class PlayerController : MonoBehaviour
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
             buttonpressed = false;
+            stopObject = other.gameObject;
             Debug.Log("Save 15 People or leave them to suffer!");
         }
         else if (other.gameObject.CompareTag("Saved"))
@@ -113,6 +120,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        test = other.GetComponent<Collider>();
         if (buttonpressed)
         {
             other.gameObject.tag = "Saved";
@@ -135,8 +143,25 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void pressedbutton()
+    public void pressedbutton(GameObject other)
     {
         buttonpressed = true;
-    }  
+
+        if (stopObject.gameObject.CompareTag("5 People"))
+        {
+            gameManager.CalculateAmountOfPeople(5);
+            Debug.Log("You Rescued 5 People!");
+        }
+        else if (stopObject.gameObject.CompareTag("10 People"))
+        {
+            Debug.Log("You Rescued 10 People!");
+            gameManager.CalculateAmountOfPeople(10);
+        }
+        else if (stopObject.gameObject.CompareTag("15 People"))
+        {
+            Debug.Log("You Rescued 15 People!");
+            gameManager.CalculateAmountOfPeople(15);
+        }
+    }
+
 }
