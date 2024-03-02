@@ -12,10 +12,12 @@ TagManager:
   - 15 People
   - Save Button
   - Skip Button
-  - Saved
   - Blockade 1
   - Blockade 2
   - Blockade 3
+  - Blockade
+  - Blockade Removed
+  - Rescued
   layers:
   - Default
   - TransparentFX

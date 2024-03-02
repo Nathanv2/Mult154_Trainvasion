@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public PlayerController playerController;
+    public GameManager gameManager;
     public Stops[] stop;
 
     public Button saveButton;
@@ -15,9 +16,16 @@ public class UIManager : MonoBehaviour
     public Button removeBlockade;
     public Button goBack;
 
+    public TextMeshProUGUI peopleText;
+
     void Start()
     {
         stop = FindObjectsOfType<Stops>();
+    }
+
+    private void Update()
+    {
+        peopleText.text = "People: " + gameManager.numPeople;
     }
 
     public void TriggerSaveButtons()
@@ -32,7 +40,7 @@ public class UIManager : MonoBehaviour
         removeBlockade.gameObject.SetActive(true);
     }
 
-    public void SetButtonsFalse()
+    public void SkipButton()
     {
         saveButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
@@ -45,7 +53,6 @@ public class UIManager : MonoBehaviour
         removeBlockade.gameObject.SetActive(false);
         goBack.gameObject.SetActive(false);
         playerController.UpdateStopsToTrue();
-        Debug.Log("You removed the blockade!");
     }
 
     public void GoBackButton()
@@ -53,15 +60,16 @@ public class UIManager : MonoBehaviour
         removeBlockade.gameObject.SetActive(false);
         goBack.gameObject.SetActive(false);
         playerController.UpdateStopsToTrue();
-        Debug.Log("You did not have enough people to remove the blockade!");
+        Debug.Log("You chose to go back!");
     }
 
-    public void LoadCombatScene()
+    public void RescueButton()
     {
         saveButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
+        peopleText.gameObject.SetActive(false);
+
         SceneManager.LoadScene("Test", LoadSceneMode.Additive);
         Debug.Log("You chose to save the people!");
-        Debug.Log("Loaded Combat Scene!");
     }
 }

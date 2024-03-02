@@ -9,18 +9,23 @@ public class Test : MonoBehaviour
 {
     public PlayerController playerController;
     public GameObject mainCamera;
+    public UIManager uiManager;
     public Button backButton;
 
+    public void Update()
+    {
+        uiManager = FindObjectOfType<UIManager>();
+    }
     public void UnloadCombatScene()
     {
         mainCamera.SetActive(false);
         backButton.gameObject.SetActive(false);
+        uiManager.peopleText.gameObject.SetActive(true);
 
         playerController = FindObjectOfType<PlayerController>();
         playerController.UpdateStopsToTrue();
 
         SceneManager.UnloadSceneAsync("Test");
-        Debug.Log("Unloaded Combat Scene!");
         Debug.Log("YOU WON!");
     }
 }

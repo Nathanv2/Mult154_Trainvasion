@@ -4,35 +4,26 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    private int numPeople2;
+    public int numPeople;
     // Start is called before the first frame update
     void Start()
     {
-        numPeople2 = 0;
+        numPeople = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CalculateAmountOfPeople(int rescuePeople)
     {
-        
-    }
-
-    public void CalculateAmountOfPeople(int numPeople)
-    {
-        if (numPeople == 5)
+        if (rescuePeople == 5)
         {
-            numPeople2 = numPeople2 + 5;
-            Debug.Log(numPeople2);
+            numPeople = numPeople + 5;
         }
-        else if (numPeople == 10)
+        else if (rescuePeople == 10)
         {
-            numPeople2 = numPeople2 + 10;
-            Debug.Log(numPeople2);
+            numPeople = numPeople + 10;
         }
-        else if(numPeople == 15)
+        else if(rescuePeople == 15)
         {
-            numPeople2 = numPeople2 + 15;
-            Debug.Log(numPeople2);
+            numPeople = numPeople + 15;
         }
     }
 }

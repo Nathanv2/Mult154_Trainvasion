@@ -13,12 +13,12 @@ public class PlayerController : MonoBehaviour
     public Stops[] stop;
     public Collider test;
     private GameObject stopObject;
+    public GameObject Blockade;
 
     private float movementSpeed = 2.5f;
     private Vector3 targetPosition;
 
     private bool isMoving = false;
-    public bool buttonpressed = false;
 
     void Start()
     {
@@ -54,6 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void MoveTowardsTargetPosition()
     {
+
         Vector3 direction = (targetPosition - transform.position).normalized;
         Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * movementSpeed);
         rbPlayer.MovePosition(newPosition);
@@ -66,11 +67,22 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // If collided with the stop that has the "Blockade" tag, it will grab that gameobject to be used in the method "Remove Blockade" and change the tag
+        if(other.gameObject.CompareTag("Blockade"))
+        {
+            stopObject = other.gameObject;
+
+            foreach(Stops stop in stop)
+            {
+                stop.canclick = false;
+            }
+        }
+
+        // If collided with stops that have people, it will trigger save buttons and the player cannot move
         if (other.gameObject.CompareTag("5 People"))
         {
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
-            buttonpressed = false;
 
             stopObject = other.gameObject;
             Debug.Log("Save 5 People or leave them to suffer!");
@@ -79,7 +91,6 @@ public class PlayerController : MonoBehaviour
         {
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
-            buttonpressed = false;
             stopObject = other.gameObject;
             Debug.Log("Save 10 People or leave them to suffer!");
         }
@@ -87,46 +98,38 @@ public class PlayerController : MonoBehaviour
         {
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
-            buttonpressed = false;
             stopObject = other.gameObject;
             Debug.Log("Save 15 People or leave them to suffer!");
         }
-        else if (other.gameObject.CompareTag("Saved"))
+        else if (other.gameObject.CompareTag("Rescued"))
         {
             Debug.Log("Already cleared!");
         }
-        else if (other.gameObject.CompareTag("Blockade 1"))
+
+        // if collided with the blockades it will trigger the blockade buttons, can't move, and gets the blockade gameobject, which will be used in the remove blockade method
+        if (other.gameObject.CompareTag("Blockade 1"))
         {
             UImanager.TriggerBlockadeButtons();
             UpdateStopsToFalse();
-            buttonpressed = false;
+            Blockade = other.gameObject;
+
             Debug.Log("Remove Blockade or Go Back!");
         } 
         else if (other.gameObject.CompareTag("Blockade 2"))
         {
             UImanager.TriggerBlockadeButtons();
             UpdateStopsToFalse();
-            buttonpressed = false;
-            Debug.Log("Remove Blockade or Go Back!");
+            Blockade = other.gameObject;
         } 
         else if (other.gameObject.CompareTag("Blockade 3"))
         {
             UImanager.TriggerBlockadeButtons();
             UpdateStopsToFalse();
-            buttonpressed = false;
-            Debug.Log("Remove Blockade or Go Back!");
+            Blockade = other.gameObject;
         }
     }
 
-    private void OnTriggerStay(Collider other)
-    {
-        test = other.GetComponent<Collider>();
-        if (buttonpressed)
-        {
-            other.gameObject.tag = "Saved";
-        }
-    }
-
+    // This method makes it so that the player cannot click on a stop
     public void UpdateStopsToFalse()
     {
         foreach (Stops stop in stop)
@@ -135,6 +138,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // This method makes it so that the player can click on a stop
     public void UpdateStopsToTrue()
     {
         foreach (Stops stop in stop)
@@ -143,24 +147,74 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void pressedbutton(GameObject other)
+    // If the Rescue is clicked, the stops tag that the player is on will change to "Rescued" and people will be added
+    public void RescuePeople()
     {
-        buttonpressed = true;
 
         if (stopObject.gameObject.CompareTag("5 People"))
         {
             gameManager.CalculateAmountOfPeople(5);
+            stopObject.tag = "Rescued";
             Debug.Log("You Rescued 5 People!");
         }
         else if (stopObject.gameObject.CompareTag("10 People"))
         {
-            Debug.Log("You Rescued 10 People!");
             gameManager.CalculateAmountOfPeople(10);
+            stopObject.tag = "Rescued";
+            Debug.Log("You Rescued 10 People!");
         }
         else if (stopObject.gameObject.CompareTag("15 People"))
         {
-            Debug.Log("You Rescued 15 People!");
             gameManager.CalculateAmountOfPeople(15);
+            stopObject.tag = "Rescued";
+            Debug.Log("You Rescued 15 People!");
+        }
+    }
+
+    public void RemoveBlockade()
+    {
+        if (Blockade.gameObject.CompareTag("Blockade 1"))
+        {
+            if (gameManager.numPeople >= 5)
+            {
+                stopObject.tag = "Blockade Removed";
+                Blockade.gameObject.tag = "Blockade Removed";
+                Blockade.gameObject.SetActive(false);
+
+                Debug.Log("Removed Blockade");
+            }
+            else
+            {
+                Debug.Log("You need 5 or more people to remove blockade!");
+            }
+        }
+        else if(Blockade.gameObject.CompareTag("Blockade 2"))
+        {
+            if(gameManager.numPeople >= 10)
+            {
+                stopObject.tag = "Blockade Removed";
+                Blockade.gameObject.tag = "Blockade Removed";
+                Blockade.gameObject.SetActive(false);
+                Debug.Log("Removed Blockade");
+            }
+            else
+            {
+                Debug.Log("You need 10 or more people to remove blockade!");
+            }
+        }
+        else if(Blockade.gameObject.CompareTag("Blockade 3"))
+        {
+            if(gameManager.numPeople >= 20)
+            {
+                stopObject.tag = "Blockade Removed";
+                Blockade.gameObject.tag = "Blockade Removed";
+                Blockade.gameObject.SetActive(false);
+                Debug.Log("Removed Blockade");
+            }
+            else
+            {
+                Debug.Log("You need 20 or more people to remove blockade!");
+            }
         }
     }
 
