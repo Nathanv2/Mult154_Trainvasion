@@ -6,6 +6,8 @@ public class EnergyBar : MonoBehaviour
 {
     private EnergySystem energySystem;
 
+    public PlayerController pc;
+
     public void Setup(EnergySystem energySystem)
     {
         this.energySystem = energySystem;
@@ -13,6 +15,7 @@ public class EnergyBar : MonoBehaviour
         energySystem.OnEnergyChanged += EnergySystem_OnEnergyChanged;
     }
 
+   
     private void EnergySystem_OnEnergyChanged(object sender, System.EventArgs e)
     {
         transform.Find("Bar").localScale = new Vector3(energySystem.GetEnergyPercent(), 1);
