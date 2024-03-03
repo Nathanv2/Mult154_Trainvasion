@@ -1649,6 +1649,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5197544104313298233, guid: 7dfc32fbbdef5ec4abbe1fb7718ba351, type: 3}
+      propertyPath: hero.currentHealth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197544104313298233, guid: 7dfc32fbbdef5ec4abbe1fb7718ba351, type: 3}
       propertyPath: hero.attacks.Array.size
       value: 1
       objectReference: {fileID: 0}

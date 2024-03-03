@@ -18,6 +18,10 @@ TagManager:
   - Blockade
   - Blockade Removed
   - Rescued
+  - Enemy
+  - Hero
+  - DeadEnemy
+  - DeadHero
   layers:
   - Default
   - TransparentFX
