@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameHandler : MonoBehaviour
 {
-    public EnergyBar energyBar;
+    /*public EnergyBar energyBar;
     
     private void Start()
     {
@@ -15,5 +15,5 @@ public class GameHandler : MonoBehaviour
 
         Debug.Log("Health:" + energySystem.GetEnergy());
 
-    }
+    }*/
 }

@@ -4,20 +4,17 @@ using UnityEngine;
 
 public class EnergySpent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int damage = 10;
+    private object otherGameObject;
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Enter");
+        PlayerController playerEnergy = otherGameObject.GetComponent<PlayerController>();
+        if(playerEnergy != null)
+        {
+            playerEnergy.TakeDamage(damage);
+            Debug.Log("Enter");
+        }
+        
     }
 }

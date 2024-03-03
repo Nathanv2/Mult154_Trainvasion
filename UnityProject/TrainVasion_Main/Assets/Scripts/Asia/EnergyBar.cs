@@ -1,14 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergyBar : MonoBehaviour
 {
     private EnergySystem energySystem;
 
-    public PlayerController pc;
+    public Slider slider;
 
-    public void Setup(EnergySystem energySystem)
+    public void SetMaxEnergy(int energy)
+    {
+        slider.maxValue = energy;
+        slider.value = energy;
+    }
+
+
+    public void SetEnergy(int energy)
+    {
+        slider.value = energy;
+    }
+
+
+
+    /*public void Setup(EnergySystem energySystem)
     {
         this.energySystem = energySystem;
 
@@ -25,6 +40,6 @@ public class EnergyBar : MonoBehaviour
     private void Update()
     {
         //transform.Find("Bar").localScale = new Vector3(energySystem.GetEnergyPercent(), 1);
-    }
+    }*/
 
 }

@@ -20,10 +20,19 @@ public class PlayerController : MonoBehaviour
 
     private bool isMoving = false;
 
+    //Asia Code for Energy
+    public int maxHealth = 100;
+    public int currentEnergy;
+    public EnergyBar energyBar;
+
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
         stop = FindObjectsOfType<Stops>();
+
+        //Asia code for energy
+        currentEnergy = maxHealth;
+        energyBar.SetMaxEnergy(maxHealth);
     }
 
     void FixedUpdate()
@@ -63,6 +72,17 @@ public class PlayerController : MonoBehaviour
         {
             isMoving = false;
         }
+        //Asia code for energy
+        //if (GameObject.)
+        //{
+            TakeDamage(10);
+       // }
+    }
+    // Asia code for energy
+    public void TakeDamage(int damage)
+    {
+        currentEnergy -= damage;
+        energyBar.SetEnergy(currentEnergy);
     }
 
     private void OnTriggerEnter(Collider other)
