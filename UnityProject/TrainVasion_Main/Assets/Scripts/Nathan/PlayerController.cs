@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     //Asia Code for Energy
     public int maxHealth = 100;
+    public int damage = 10;
     public int currentEnergy;
     public EnergyBar energyBar;
 
@@ -72,14 +73,10 @@ public class PlayerController : MonoBehaviour
         {
             isMoving = false;
         }
-        //Asia code for energy
-        //if (GameObject.)
-        //{
-            TakeDamage(10);
-       // }
+
     }
     // Asia code for energy
-    public void TakeDamage(int damage)
+    public void TakeDamage()
     {
         currentEnergy -= damage;
         energyBar.SetEnergy(currentEnergy);
@@ -96,6 +93,7 @@ public class PlayerController : MonoBehaviour
             {
                 stop.canclick = false;
             }
+            TakeDamage();
         }
 
         // If collided with stops that have people, it will trigger save buttons and the player cannot move
@@ -104,6 +102,8 @@ public class PlayerController : MonoBehaviour
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
 
+            TakeDamage();
+
             stopObject = other.gameObject;
             Debug.Log("Save 5 People or leave them to suffer!");
         }
@@ -111,6 +111,7 @@ public class PlayerController : MonoBehaviour
         {
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
+            TakeDamage();
             stopObject = other.gameObject;
             Debug.Log("Save 10 People or leave them to suffer!");
         }
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
         {
             UImanager.TriggerSaveButtons();
             UpdateStopsToFalse();
+            TakeDamage();
             stopObject = other.gameObject;
             Debug.Log("Save 15 People or leave them to suffer!");
         }

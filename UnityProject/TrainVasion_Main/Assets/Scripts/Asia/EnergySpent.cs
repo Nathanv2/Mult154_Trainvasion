@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnergySpent : MonoBehaviour
 {
-    public int damage = 10;
+    /*public int damage = 10;
     public PlayerController playerController;
     private void OnTriggerEnter(Collider other)
     {
@@ -14,5 +14,5 @@ public class EnergySpent : MonoBehaviour
             Debug.Log("Enter");
         }
 
-    }
+    }*/
 }
