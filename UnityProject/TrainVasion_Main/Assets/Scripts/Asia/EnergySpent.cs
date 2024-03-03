@@ -5,16 +5,14 @@ using UnityEngine;
 public class EnergySpent : MonoBehaviour
 {
     public int damage = 10;
-    private object otherGameObject;
-
+    public PlayerController playerController;
     private void OnTriggerEnter(Collider other)
     {
-        PlayerController playerEnergy = otherGameObject.GetComponent<PlayerController>();
-        if(playerEnergy != null)
+        if (other.gameObject.CompareTag("Player"))
         {
-            playerEnergy.TakeDamage(damage);
+            playerController.TakeDamage(damage);
             Debug.Log("Enter");
         }
-        
+
     }
 }

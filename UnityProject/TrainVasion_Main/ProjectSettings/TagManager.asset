@@ -22,6 +22,7 @@ TagManager:
   - Hero
   - DeadEnemy
   - DeadHero
+  - EnergyBlock
   layers:
   - Default
   - TransparentFX

@@ -170,6 +170,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &13376089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2505,6 +2507,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &804801744
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3851,6 +3855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &1219409761
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4076,6 +4082,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &1349371294
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4186,6 +4194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &1354332555
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4330,6 +4340,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &1396765066
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5312,7 +5324,7 @@ GameObject:
   - component: {fileID: 1799800827}
   m_Layer: 0
   m_Name: EnergyBlock
-  m_TagString: Untagged
+  m_TagString: EnergyBlock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5388,7 +5400,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1799800821}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.37, y: -0.73, z: 0}
+  m_LocalPosition: {x: 5.37, y: 0.01, z: 0}
   m_LocalScale: {x: 2, y: 1, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5407,6 +5419,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 549487440}
 --- !u!1 &1832886438
 GameObject:
   m_ObjectHideFlags: 0
@@ -5454,6 +5468,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a6392f7e71aca49a36b241b805feea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
+  playerController: {fileID: 0}
 --- !u!65 &1832886441
 BoxCollider:
   m_ObjectHideFlags: 0
