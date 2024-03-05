@@ -6,7 +6,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameManager gameManager;
+    //public GameManager gameManager; (angel changed this because it will cause problems with the game transitions between scenes since it's trying to find the object from the project browser and not in game)
+    private GameManager GM;
     public UIManager UImanager;
     private Rigidbody rbPlayer;
     private GameObject Player;
@@ -26,6 +27,10 @@ public class PlayerController : MonoBehaviour
     public int currentEnergy;
     public EnergyBar energyBar;
 
+    //Angel's code variables
+    
+    
+
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
@@ -34,6 +39,11 @@ public class PlayerController : MonoBehaviour
         //Asia code for energy
         currentEnergy = maxHealth;
         energyBar.SetMaxEnergy(maxHealth);
+
+        //Angel's start
+
+        //this finds the object from inside the game
+        GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
     void FixedUpdate()
@@ -175,19 +185,19 @@ public class PlayerController : MonoBehaviour
 
         if (stopObject.gameObject.CompareTag("5 People"))
         {
-            gameManager.CalculateAmountOfPeople(5);
+            GM.CalculateAmountOfPeople(5);
             stopObject.tag = "Rescued";
             Debug.Log("You Rescued 5 People!");
         }
         else if (stopObject.gameObject.CompareTag("10 People"))
         {
-            gameManager.CalculateAmountOfPeople(10);
+            GM.CalculateAmountOfPeople(10);
             stopObject.tag = "Rescued";
             Debug.Log("You Rescued 10 People!");
         }
         else if (stopObject.gameObject.CompareTag("15 People"))
         {
-            gameManager.CalculateAmountOfPeople(15);
+            GM.CalculateAmountOfPeople(15);
             stopObject.tag = "Rescued";
             Debug.Log("You Rescued 15 People!");
         }
@@ -197,7 +207,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Blockade.gameObject.CompareTag("Blockade 1"))
         {
-            if (gameManager.numPeople >= 5)
+            if (GM.numPeople >= 5)
             {
                 stopObject.tag = "Blockade Removed";
                 Blockade.gameObject.tag = "Blockade Removed";
@@ -212,7 +222,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Blockade.gameObject.CompareTag("Blockade 2"))
         {
-            if(gameManager.numPeople >= 10)
+            if(GM.numPeople >= 10)
             {
                 stopObject.tag = "Blockade Removed";
                 Blockade.gameObject.tag = "Blockade Removed";
@@ -226,7 +236,7 @@ public class PlayerController : MonoBehaviour
         }
         else if(Blockade.gameObject.CompareTag("Blockade 3"))
         {
-            if(gameManager.numPeople >= 20)
+            if(GM.numPeople >= 20)
             {
                 stopObject.tag = "Blockade Removed";
                 Blockade.gameObject.tag = "Blockade Removed";

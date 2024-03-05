@@ -63,13 +63,15 @@ public class UIManager : MonoBehaviour
         Debug.Log("You chose to go back!");
     }
 
+
+    //Angel's working on this (transitions to combat scene)
     public void RescueButton()
     {
         saveButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         peopleText.gameObject.SetActive(false);
 
-        SceneManager.LoadScene("Test", LoadSceneMode.Additive);
+        SceneManager.LoadScene("SampleScene");
         Debug.Log("You chose to save the people!");
     }
 }
