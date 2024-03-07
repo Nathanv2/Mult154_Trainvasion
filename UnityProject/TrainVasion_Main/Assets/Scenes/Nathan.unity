@@ -1858,6 +1858,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numPeople: 0
+  statesOfGame: 0
+  TurnsOfMainGame: []
 --- !u!4 &526616482
 Transform:
   m_ObjectHideFlags: 0
@@ -1906,7 +1908,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 831eee5cff1a96b42a62db06327781c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameManager: {fileID: 526616481}
   UImanager: {fileID: 1762901792}
   stop: []
   test: {fileID: 0}
