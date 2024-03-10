@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1404817790466817075}
   - component: {fileID: 660019683683725542}
   m_Layer: 0
-  m_Name: polySurface80
+  m_Name: Boss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
