@@ -15,30 +15,30 @@ public class Tracks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      
+        InvokeRepeating("SpawningTrack", 0, 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.W))
+
+        if (Input.GetKeyDown(KeyCode.W))
         {
-            StartCoroutine(SpawnTracks());
+            CancelInvoke("SpawningTrack");
+            
         }
-        
-      
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            InvokeRepeating("SpawningTrack", 0, 1f);
+        }
+
+
     }
-    IEnumerator SpawnTracks()
+   void SpawningTrack()
     {
-        for(int i = 0; i< 1; i++)
-        {
-            Instantiate(tracks, spawner[0].transform.position, Quaternion.identity);
-            Instantiate(tracks, spawner[1].transform.position, Quaternion.identity);
-            Instantiate(tracks, spawner[2].transform.position, Quaternion.identity);
-            Instantiate(tracks, spawner[3].transform.position, Quaternion.identity);
-            Instantiate(tracks, spawner[4].transform.position, Quaternion.identity);
-        }
-        yield return null;
-       
+        Instantiate(tracks, spawner[0].transform.position, Quaternion.identity);
+        Instantiate(tracks, spawner[1].transform.position, Quaternion.identity);
+        Instantiate(tracks, spawner[2].transform.position, Quaternion.identity);
+        Instantiate(tracks, spawner[3].transform.position, Quaternion.identity);
     }
 }
