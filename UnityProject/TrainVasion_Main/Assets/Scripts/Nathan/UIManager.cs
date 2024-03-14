@@ -9,7 +9,7 @@ public class UIManager : MonoBehaviour
 {
     public PlayerController playerController;
     public GameManager gameManager;
-    public Stops[] stop;
+    public Raycasting rayCast;
 
     public Button saveButton;
     public Button skipButton;
@@ -20,7 +20,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-        stop = FindObjectsOfType<Stops>();
+
     }
 
     private void Update()
@@ -44,7 +44,7 @@ public class UIManager : MonoBehaviour
     {
         saveButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-        playerController.UpdateStopsToTrue();
+        playerController.canMove = true;
         Debug.Log("You chose to leave the people to suffer!");
     }
 
@@ -52,14 +52,14 @@ public class UIManager : MonoBehaviour
     {
         removeBlockade.gameObject.SetActive(false);
         goBack.gameObject.SetActive(false);
-        playerController.UpdateStopsToTrue();
+        playerController.canMove = true;
     }
 
     public void GoBackButton()
     {
         removeBlockade.gameObject.SetActive(false);
         goBack.gameObject.SetActive(false);
-        playerController.UpdateStopsToTrue();
+        playerController.canMove = true;
         Debug.Log("You chose to go back!");
     }
 
@@ -69,9 +69,30 @@ public class UIManager : MonoBehaviour
     {
         saveButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
-        peopleText.gameObject.SetActive(false);
+        peopleText.gameObject.SetActive(true);
+        playerController.canMove = true;
 
-        SceneManager.LoadScene("SampleScene");
+        //SceneManager.LoadScene("Test");
         Debug.Log("You chose to save the people!");
+    }
+
+    public void ArrowButtons(GameObject other)
+    {
+        if(other.gameObject.CompareTag("Forward Arrow") && playerController.canMove)
+        {
+            rayCast.ActivateMovement();
+        }
+        else if(other.gameObject.CompareTag("Left Arrow") && playerController.canMove)
+        {
+            playerController.PlayerMovement(0, 0);
+        }
+        else if(other.gameObject.CompareTag("Right Arrow") && playerController.canMove)
+        {
+            playerController.PlayerMovement(1, 1);
+        }
+        else if(other.gameObject.CompareTag("Backward Arrow"))
+        {
+
+        }
     }
 }

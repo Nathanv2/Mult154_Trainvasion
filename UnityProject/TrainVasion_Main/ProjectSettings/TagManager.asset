@@ -23,6 +23,10 @@ TagManager:
   - DeadEnemy
   - DeadHero
   - EnergyBlock
+  - Forward Arrow
+  - Left Arrow
+  - Right Arrow
+  - Backward Arrow
   layers:
   - Default
   - TransparentFX

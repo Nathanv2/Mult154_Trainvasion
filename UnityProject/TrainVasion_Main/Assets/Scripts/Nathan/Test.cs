@@ -23,7 +23,6 @@ public class Test : MonoBehaviour
         uiManager.peopleText.gameObject.SetActive(true);
 
         playerController = FindObjectOfType<PlayerController>();
-        playerController.UpdateStopsToTrue();
 
         SceneManager.UnloadSceneAsync("Test");
         Debug.Log("YOU WON!");
