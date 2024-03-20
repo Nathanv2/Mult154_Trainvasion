@@ -10,18 +10,17 @@ public class UIManager : MonoBehaviour
     public PlayerController playerController;
     public GameManager gameManager;
     public Raycasting rayCast;
+    public Rotate rotatePlayer;
 
     public Button saveButton;
     public Button skipButton;
     public Button removeBlockade;
     public Button goBack;
 
+    private float buttonCooldown = 2.5f;
+    private bool canClick = true;
+
     public TextMeshProUGUI peopleText;
-
-    void Start()
-    {
-
-    }
 
     private void Update()
     {
@@ -63,7 +62,6 @@ public class UIManager : MonoBehaviour
         Debug.Log("You chose to go back!");
     }
 
-
     //Angel's working on this (transitions to combat scene)
     public void RescueButton()
     {
@@ -78,21 +76,36 @@ public class UIManager : MonoBehaviour
 
     public void ArrowButtons(GameObject other)
     {
-        if(other.gameObject.CompareTag("Forward Arrow") && playerController.canMove)
+        if(canClick && playerController.canMove)
         {
-            rayCast.ActivateMovement();
-        }
-        else if(other.gameObject.CompareTag("Left Arrow") && playerController.canMove)
-        {
-            playerController.PlayerMovement(0, 0);
-        }
-        else if(other.gameObject.CompareTag("Right Arrow") && playerController.canMove)
-        {
-            playerController.PlayerMovement(1, 1);
-        }
-        else if(other.gameObject.CompareTag("Backward Arrow"))
-        {
+            if (other.gameObject.CompareTag("Forward Arrow"))
+            {
+                rayCast.ActivateMovement();
+            }
+            else if (other.gameObject.CompareTag("Left Arrow"))
+            {
+                rayCast.RotateRay(1, 1);
+                rotatePlayer.RotatePlayerLeft();
+            }
+            else if (other.gameObject.CompareTag("Right Arrow"))
+            {
+                rayCast.RotateRay(0, 0);
+                rotatePlayer.RotatePlayerRight();
+            }
+            else if (other.gameObject.CompareTag("Backward Arrow"))
+            {
 
+            }
+            StartCoroutine(ButtonCooldown());
         }
+    }
+
+    IEnumerator ButtonCooldown()
+    {
+        canClick = false;
+
+        yield return new WaitForSeconds(buttonCooldown);
+
+        canClick = true;
     }
 }

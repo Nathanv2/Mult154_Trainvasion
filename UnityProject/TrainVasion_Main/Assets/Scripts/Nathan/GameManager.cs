@@ -110,17 +110,17 @@ public class GameManager : MonoBehaviour
 
     public void CalculateAmountOfPeople(int rescuePeople)
     {
-        if (rescuePeople == 5)
+        if (rescuePeople == 1)
+        {
+            numPeople = numPeople + 1;
+        }
+        else if (rescuePeople == 5)
         {
             numPeople = numPeople + 5;
         }
-        else if (rescuePeople == 10)
+        else if(rescuePeople == 10)
         {
             numPeople = numPeople + 10;
-        }
-        else if(rescuePeople == 15)
-        {
-            numPeople = numPeople + 15;
         }
     }
 }

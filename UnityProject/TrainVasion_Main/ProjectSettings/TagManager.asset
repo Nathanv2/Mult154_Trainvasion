@@ -7,9 +7,6 @@ TagManager:
   - Unit
   - Tile
   - Stop
-  - 5 People
-  - 10 People
-  - 15 People
   - Save Button
   - Skip Button
   - Blockade 1
@@ -27,6 +24,10 @@ TagManager:
   - Left Arrow
   - Right Arrow
   - Backward Arrow
+  - 1 People
+  - 5 People
+  - 10 People
+  - 15 People
   layers:
   - Default
   - TransparentFX
