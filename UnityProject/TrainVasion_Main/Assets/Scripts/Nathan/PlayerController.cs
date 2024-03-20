@@ -56,20 +56,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void PlayerMovement(int test, int test1)
-    {
-        if (test == 0)
-        {
-            raycast.RotateRay(1, 1);
-            transform.Rotate(0, -90, 0);
-        }
-        else if (test == 1)
-        {
-            raycast.RotateRay(0, 0);
-            transform.Rotate(0, 90, 0);
-        }
-    }
-
     public void Transition(Vector3 NextStop)
     {
         targetPosition = NextStop;
@@ -106,7 +92,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // If collided with stops that have people, it will trigger save buttons and the player cannot move
-        if (other.gameObject.CompareTag("5 People") || other.gameObject.CompareTag("10 People") || other.gameObject.CompareTag("15 People"))
+        if (other.gameObject.CompareTag("1 People") || other.gameObject.CompareTag("5 People") || other.gameObject.CompareTag("10 People"))
         {
             UImanager.TriggerSaveButtons();
             canMove = false;
@@ -135,7 +121,13 @@ public class PlayerController : MonoBehaviour
     public void RescuePeople()
     {
 
-        if (stopObject.gameObject.CompareTag("5 People"))
+        if (stopObject.gameObject.CompareTag("1 People"))
+        {
+            GM.CalculateAmountOfPeople(1);
+            stopObject.tag = "Rescued";
+            Debug.Log("You Rescued 1 People!");
+        }
+        else if (stopObject.gameObject.CompareTag("5 People"))
         {
             GM.CalculateAmountOfPeople(5);
             stopObject.tag = "Rescued";
@@ -147,19 +139,13 @@ public class PlayerController : MonoBehaviour
             stopObject.tag = "Rescued";
             Debug.Log("You Rescued 10 People!");
         }
-        else if (stopObject.gameObject.CompareTag("15 People"))
-        {
-            GM.CalculateAmountOfPeople(15);
-            stopObject.tag = "Rescued";
-            Debug.Log("You Rescued 15 People!");
-        }
     }
 
     public void RemoveBlockade()
     {
         if (Blockade.gameObject.CompareTag("Blockade 1") || Blockade.gameObject.CompareTag("Blockade 2") || Blockade.gameObject.CompareTag("Blockade 3"))
         {
-            if (GM.numPeople >= 5 || GM.numPeople >= 10 || GM.numPeople >= 20)
+            if (GM.numPeople >= 20 || GM.numPeople >= 45)
             {
                 stopObject.tag = "Blockade Removed";
                 Blockade.gameObject.tag = "Blockade Removed";
