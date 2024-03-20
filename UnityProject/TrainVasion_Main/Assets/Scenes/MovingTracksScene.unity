@@ -252,6 +252,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrainCar
       objectReference: {fileID: 0}
+    - target: {fileID: 4028945179571598432, guid: d459ee11f6bc32647963188bd78680c0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d459ee11f6bc32647963188bd78680c0, type: 3}
 --- !u!1001 &1184545031
@@ -321,6 +325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Conductor
       objectReference: {fileID: 0}
+    - target: {fileID: 6765210465993364351, guid: 66c2ee3db92ac9b4496897c21fdb42f1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c2ee3db92ac9b4496897c21fdb42f1, type: 3}
 --- !u!1001 &1262279659
@@ -333,6 +341,10 @@ PrefabInstance:
     - target: {fileID: 464742318822913506, guid: 4fac59c6369432f48b334fa662858604, type: 3}
       propertyPath: m_Name
       value: Stop
+      objectReference: {fileID: 0}
+    - target: {fileID: 464742318822913506, guid: 4fac59c6369432f48b334fa662858604, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8066857464413514440, guid: 4fac59c6369432f48b334fa662858604, type: 3}
       propertyPath: m_RootOrder

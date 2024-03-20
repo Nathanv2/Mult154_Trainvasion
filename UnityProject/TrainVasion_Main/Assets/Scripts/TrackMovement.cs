@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrackMovement : MonoBehaviour
 {
-    public GameObject povCamera;
+    
     public float speed;
     // Start is called before the first frame update
     void Start()
