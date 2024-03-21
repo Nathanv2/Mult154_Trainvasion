@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rbPlayer;
-    private Vector3 direction = Vector3.zero;
+    private Vector3 AddForce = Vector3.zero;
     public float speed = 10.0f;
 
     // Start is called before the first frame update
@@ -19,12 +19,13 @@ public class PlayerMovement : MonoBehaviour
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
 
-        direction = new Vector3(horMove, 0, verMove);
+        AddForce = horMove * Vector3.left + verMove * Vector3.back;
     }
 
     // Update is called for once per frame
     void FixedUpdate()
     {
-        rbPlayer.AddForce(direction, ForceMode.Impulse);
+        Vector3 movement = AddForce * speed * Time.deltaTime;
+        rbPlayer.AddForce(movement, ForceMode.Impulse);
     }
 }
