@@ -21,7 +21,9 @@ public class TrackManager : MonoBehaviour
 
     public bool isMoving = false;
 
-    
+    public float maxYVal;
+    public float minYVal;
+
 
 
     public void Start()
