@@ -76,8 +76,7 @@ public class PlayerController : MonoBehaviour
     // Asia code for energy
     public void TakeDamage()
     {
-        currentEnergy -= damage;
-        energyBar.SetEnergy(currentEnergy);
+        energyBar.slider.value -= 10;
     }
 
     private void OnTriggerEnter(Collider other)
