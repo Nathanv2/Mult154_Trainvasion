@@ -21,6 +21,7 @@ public class UIManager : MonoBehaviour
     private bool canClick = true;
 
     public TextMeshProUGUI peopleText;
+    public TextMeshProUGUI gameOverText;
 
     private void Update()
     {
