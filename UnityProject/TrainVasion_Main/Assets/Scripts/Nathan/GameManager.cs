@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public int numPeople;
+    public EnergyBar energyBar;
+    public UIManager uiManager;
 
 
     //Angel's Code (Enum Stuff/Game States)
@@ -42,7 +44,7 @@ public class GameManager : MonoBehaviour
 
     public void Update()
     {
-
+        GameOver();
         //Angel's code(switch cases of the game)
         switch(statesOfGame)
         {
@@ -121,6 +123,17 @@ public class GameManager : MonoBehaviour
         else if(rescuePeople == 10)
         {
             numPeople = numPeople + 10;
+        }
+    }
+
+    public void GameOver()
+    {
+        if(energyBar.slider.value <= 0)
+        {
+            Time.timeScale = 0;
+            uiManager.gameOverText.gameObject.SetActive(true);
+            uiManager.RescueButton();
+            Debug.Log("GAME OVER");
         }
     }
 }
