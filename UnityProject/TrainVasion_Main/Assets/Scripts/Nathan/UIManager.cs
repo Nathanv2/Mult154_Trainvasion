@@ -74,7 +74,7 @@ public class UIManager : MonoBehaviour
         playerController.canMove = true;
 
         //SceneManager.LoadScene("Test");
-        SceneManager.LoadScene("PlayerMovement");
+        SceneManager.LoadScene("Exploration");
         Debug.Log("You chose to save the people!");
     }
 
