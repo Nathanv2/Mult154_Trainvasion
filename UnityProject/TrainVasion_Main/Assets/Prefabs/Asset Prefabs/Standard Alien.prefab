@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3138060128851543255}
   - component: {fileID: 1743019116583135612}
   - component: {fileID: 1476449328742105588}
+  - component: {fileID: -4249377113829365558}
   m_Layer: 0
   m_Name: Standard Alien
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &-4249377113829365558
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3571251696313225728}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.8226604, y: 4.8180823, z: 2.2762363}
+  m_Center: {x: 0, y: 0, z: 0}
