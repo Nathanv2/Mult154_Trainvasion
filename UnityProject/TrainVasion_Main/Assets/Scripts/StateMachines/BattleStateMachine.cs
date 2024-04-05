@@ -54,9 +54,14 @@ public class BattleStateMachine : MonoBehaviour
     //enemy buttons
     private List<GameObject> enemyBtns = new List<GameObject>();
 
+    //GameManager stuff
+    public GameManager GM;
+
 
     private void Start()
     {
+        GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         battleStates = PerformAction.WAIT;
         EnemiesInBattle.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         HerosInBattle.AddRange(GameObject.FindGameObjectsWithTag("Hero"));
@@ -138,12 +143,14 @@ public class BattleStateMachine : MonoBehaviour
                     {
                         HerosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
                     }
+                    GM.LoadTrainVasionScene();
                 }
             break;
 
             case (PerformAction.LOSE):
                 {
                     Debug.Log("You lost the battle");
+                    GM.LoadTrainVasionScene();
                 }
             break;
         }

@@ -10,21 +10,6 @@ public class GameManager : MonoBehaviour
     public UIManager uiManager;
 
 
-    //Angel's Code (Enum Stuff/Game States)
-    //This will dictate the flow of the game
-    public enum GameStates
-    {
-        IDLE,
-        MOVETOSTOP,
-        MOVED,
-        CHOOSE,
-        RESCUED,
-        SKIP,
-        WINGAME,
-        LOSEGAME
-    }
-    public GameStates statesOfGame;
-
     //creates a new list where gameManager will read from to see what is happening and what to do
     public List<HandleTurns> TurnsOfMainGame = new List<HandleTurns>();
 
@@ -38,76 +23,9 @@ public class GameManager : MonoBehaviour
     {
         numPeople = 0;
 
-        statesOfGame = GameStates.IDLE;
-    }
+        FindEnergy();
 
 
-    public void Update()
-    {
-        GameOver();
-        //Angel's code(switch cases of the game)
-        switch(statesOfGame)
-        {
-            case(GameStates.IDLE):
-
-                //This is idle state AKA player is doing nothing, idle will transition quickly to movetostop state
-                if(TurnsOfMainGame.Count > 0)
-                {
-
-                }
-
-            break;
-
-            case (GameStates.MOVETOSTOP):
-
-                //player will get the option to move to tiles where the whole player controller function will take place
-
-                //once player moves will transition to choose option state which is self explanatory
-
-            break;
-
-            case (GameStates.MOVED):
-
-                //when moved update bar stuff Asia's stuff will be here
-
-            break;
-
-            case (GameStates.CHOOSE):
-
-                //GUI will activate allowing player to choose either skip or save
-
-                //when saving switch to rescued state 
-
-                //if skip occurs, switch to skip state
-
-            break;
-
-            case (GameStates.RESCUED):
-
-                //this will change scene to combat scene heroes and enemies will be instantiated depending on the stats of the player
-
-            break;
-
-            case (GameStates.SKIP):
-
-                //skip will move player back to idle where he can decide what to do
-
-            break;
-
-            case (GameStates.WINGAME):
-
-                //if player reaches end game will end on a win
-
-            break;
-
-            case (GameStates.LOSEGAME):
-
-                //this will change scene to epic cinematic where we tragically loose
-
-            break;
-
-
-        }
     }
 
     public void CalculateAmountOfPeople(int rescuePeople)
@@ -135,5 +53,15 @@ public class GameManager : MonoBehaviour
             uiManager.RescueButton();
             Debug.Log("GAME OVER");
         }
+    }
+
+    public void FindEnergy()
+    {
+        energyBar = GameObject.Find("EnergyBarCanvas").GetComponent<EnergyBar>();
+    }
+
+    public void LoadTrainVasionScene()
+    {
+        SceneManager.LoadScene("Trainvasion");
     }
 }

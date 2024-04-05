@@ -23,6 +23,8 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI peopleText;
     public TextMeshProUGUI gameOverText;
 
+    
+
     private void Update()
     {
         peopleText.text = "People: " + gameManager.numPeople;
@@ -72,7 +74,13 @@ public class UIManager : MonoBehaviour
         playerController.canMove = true;
 
         //SceneManager.LoadScene("Test");
+        SceneManager.LoadScene("PlayerMovement");
         Debug.Log("You chose to save the people!");
+    }
+
+    public void StartCombat()
+    {
+        SceneManager.LoadScene("Combat");
     }
 
     public void ArrowButtons(GameObject other)
