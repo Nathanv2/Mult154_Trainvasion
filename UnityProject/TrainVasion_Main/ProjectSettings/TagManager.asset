@@ -29,6 +29,7 @@ TagManager:
   - 10 People
   - 15 People
   - TrackManager
+  - Audio
   layers:
   - Default
   - TransparentFX
