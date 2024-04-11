@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -28,6 +29,11 @@ public class GameManager : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+        GameOver();
+    }
+
     public void CalculateAmountOfPeople(int rescuePeople)
     {
         if (rescuePeople == 1)
@@ -50,7 +56,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             uiManager.gameOverText.gameObject.SetActive(true);
-            uiManager.RescueButton();
+            uiManager.SkipButton();
             Debug.Log("GAME OVER");
         }
     }

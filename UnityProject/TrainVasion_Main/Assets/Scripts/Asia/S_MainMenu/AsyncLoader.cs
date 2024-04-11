@@ -18,18 +18,27 @@ public class AsyncLoader : MonoBehaviour
         mainMenu.SetActive(false);
         loadingScreen.SetActive(true);
 
-        StartCoroutine(LoadLevelASync(levelToLoad));
+        //StartCoroutine(LoadLevelASync());
+
+        StartCoroutine(LoadScene());
     }
 
-    IEnumerator LoadLevelASync(string levelToLoad)
+    /*IEnumerator LoadLevelASync()
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);
-        
-        while (!loadOperation.isDone)
+        AsyncOperation loadOperation = SceneManager.LoadSceneAsync();
+
+         while (!loadOperation.isDone)
         {
             float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
             loadingSlider.value = progressValue;
             yield return null;
-        }
+        } 
+
+    }*/
+
+    IEnumerator LoadScene()
+    {
+        yield return new WaitForSeconds(5.0f);
+        SceneManager.LoadScene("Trainvasion");
     }
 }
