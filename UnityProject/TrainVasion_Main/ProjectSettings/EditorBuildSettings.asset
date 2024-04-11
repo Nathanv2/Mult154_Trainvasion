@@ -8,19 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 0d2ca3fc3f5d61542bcb3c8669a47a82
-  - enabled: 0
-    path: Assets/Scenes/Test.unity
-    guid: 39ba65ec1300aef499ed3f5d70ea4278
-  - enabled: 1
-    path: Assets/Scenes/Combat.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
-    path: Assets/Scenes/Exploration.unity
-    guid: 7f1edf212450cd64b949908d3cf85780
-  - enabled: 0
-    path: Assets/Scenes/Nathan.unity
-    guid: 959449024efd9494598bc126da960bc9
   - enabled: 1
     path: Assets/Scenes/Trainvasion.unity
     guid: 73e2baf40f55ca346a8ec60373c1d239
+  - enabled: 1
+    path: Assets/Scenes/Exploration.unity
+    guid: 7f1edf212450cd64b949908d3cf85780
+  - enabled: 1
+    path: Assets/Scenes/Combat.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
