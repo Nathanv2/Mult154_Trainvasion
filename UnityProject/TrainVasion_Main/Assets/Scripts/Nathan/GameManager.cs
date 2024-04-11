@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if(energyBar.slider.value <= 0)
+        if (energyBar.slider.value <= 0);
         {
             Time.timeScale = 0;
             uiManager.gameOverText.gameObject.SetActive(true);
