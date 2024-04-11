@@ -23,10 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         numPeople = 0;
-
         FindEnergy();
-
-
     }
 
     private void Update()
@@ -52,7 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (energyBar.slider.value <= 0);
+        if (energyBar.slider.value <= 0)
         {
             Time.timeScale = 0;
             uiManager.gameOverText.gameObject.SetActive(true);
