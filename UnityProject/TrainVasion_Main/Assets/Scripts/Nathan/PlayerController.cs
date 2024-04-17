@@ -157,4 +157,20 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("RedZone"))
+        {
+            GM.isOnRed = true;
+            GM.isOnYellow = false;
+        }
+     
+        if (other.CompareTag("YellowZone"))
+        {
+            GM.isOnYellow = true;
+            GM.isOnRed = false;
+        }
+      
+    }
+
 }

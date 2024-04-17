@@ -58,12 +58,29 @@ public class BattleStateMachine : MonoBehaviour
     public GameManager GM;
 
 
-    private void Start()
+    public List<Transform> enemySpawnPoints= new List<Transform>();
+
+    public GameObject enemyPrefab;
+
+    public void Awake()
     {
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
+        for (int i = 0; i < GM.enemiesToSpawn; i++)
+        {
+            GameObject NewEnemy = Instantiate(enemyPrefab, enemySpawnPoints[i].position, Quaternion.identity) as GameObject;
+            NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_"+(i+1);
+            NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
+            EnemiesInBattle.Add(NewEnemy);
+        }
+    }
+
+    private void Start()
+    {
+        //GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
+
         battleStates = PerformAction.WAIT;
-        EnemiesInBattle.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
+        //EnemiesInBattle.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
         HerosInBattle.AddRange(GameObject.FindGameObjectsWithTag("Hero"));
         HeroInput = HeroGUI.ACTIVATE;
 
@@ -143,6 +160,7 @@ public class BattleStateMachine : MonoBehaviour
                     {
                         HerosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
                     }
+                    GM.numPeople= GM.numPeople + Random.Range(1,10);
                     GM.LoadTrainVasionScene();
                 }
             break;

@@ -10,6 +10,13 @@ public class EnergyBar : MonoBehaviour
     public Slider slider;
     public int currentEnergy = 100;
 
+    public GameManager GM;
+
+    public void Start()
+    {
+        GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
+    }
+
     public void SetMaxEnergy(int energy)
     {
         slider.maxValue = 100;

@@ -30,6 +30,9 @@ TagManager:
   - 15 People
   - TrackManager
   - Audio
+  - RedZone
+  - YellowZone
+  - BlueZone
   layers:
   - Default
   - TransparentFX

@@ -6,29 +6,61 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
+    public static GameManager instance;
+
     public int numPeople;
     public EnergyBar energyBar;
     public UIManager uiManager;
+    public GameObject player;
 
+    //ZoneColliderStuff
 
-    //creates a new list where gameManager will read from to see what is happening and what to do
-    public List<HandleTurns> TurnsOfMainGame = new List<HandleTurns>();
+    public bool isOnRed;
+    public bool isOnYellow;
+    public bool isOnBlue;
+
+    public int enemiesToSpawn;
 
     //Angel's code (awake is called, its faster than start + wont destroy sceneManager)
     private void Awake()
     {
-        DontDestroyOnLoad(this);
+        //checks if intance exists
+        if (instance == null)
+        {
+            instance = this;
+        }
+        //if an intance of the gameManager already exists on a scene destroy it
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        //wont be destroyed between changing scenes
+        DontDestroyOnLoad(gameObject);
+
+        //check if there's a player and sets it so it is not destroyable
+        DontDestroyOnLoad(gameObject);
+        if (!GameObject.FindGameObjectWithTag("Player"))
+        {
+            GameObject MainGuy = Instantiate(player, Vector3.zero, Quaternion.identity);
+            MainGuy.name = "Intantiated player";
+        }
+
     }
 
     void Start()
     {
+        
+
         numPeople = 0;
-        FindEnergy();
+        //FindStuff();
+        
     }
 
     private void Update()
     {
-        GameOver();
+        //GameOver();
+        CalculateEnemies();
     }
 
     public void CalculateAmountOfPeople(int rescuePeople)
@@ -58,13 +90,26 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void FindEnergy()
+    public void FindStuff()
     {
         energyBar = GameObject.Find("EnergyBarCanvas").GetComponent<EnergyBar>();
+        uiManager = GameObject.Find("UI Manager").GetComponent<UIManager>();
     }
 
     public void LoadTrainVasionScene()
     {
         SceneManager.LoadScene("Trainvasion");
+    }
+
+    public void CalculateEnemies()
+    {
+        if(isOnRed==true)
+        {
+            enemiesToSpawn = Random.Range(1,3);
+        }
+        else if(isOnYellow==true)
+        {
+            enemiesToSpawn = Random.Range(2, 4);
+        }
     }
 }

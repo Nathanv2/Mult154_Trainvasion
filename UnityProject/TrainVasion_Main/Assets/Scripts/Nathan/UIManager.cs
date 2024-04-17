@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public PlayerController playerController;
-    public GameManager gameManager;
+    //public GameManager gameManager;
     public Raycasting rayCast;
     public Rotate rotatePlayer;
 
@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     public Button skipButton;
     public Button removeBlockade;
     public Button goBack;
+    public EnergyBar energyBar;
 
     private float buttonCooldown = 2.5f;
     private bool canClick = true;
@@ -23,11 +24,19 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI peopleText;
     public TextMeshProUGUI gameOverText;
 
-    
+    public GameManager GM;
+
+    public void Start()
+    {
+        GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
+        energyBar = GameObject.Find("EnergyBarCanvas").GetComponent<EnergyBar>();
+    }
+
+
 
     private void Update()
     {
-        peopleText.text = "People: " + gameManager.numPeople;
+        peopleText.text = "People: " + GM.numPeople;
     }
 
     public void TriggerSaveButtons()
@@ -106,6 +115,16 @@ public class UIManager : MonoBehaviour
 
             }
             StartCoroutine(ButtonCooldown());
+        }
+    }
+    public void GameOver()
+    {
+        if (energyBar.slider.value <= 0)
+        {
+            Time.timeScale = 0;
+            gameOverText.gameObject.SetActive(true);
+            SkipButton();
+            Debug.Log("GAME OVER");
         }
     }
 
