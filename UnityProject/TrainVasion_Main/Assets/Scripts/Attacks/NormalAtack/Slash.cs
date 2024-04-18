@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Slash : BaseAttack
 {
-    AudioManager AudioManager;
+    //AudioManager AudioManager;
     private void Awake()
     {
-        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        //AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     public Slash()
@@ -16,6 +16,6 @@ public class Slash : BaseAttack
         attackDescription = "basic knife slash";
         attackDamage = 10f;
         attackCost = 0;
-        AudioManager.PlaySFX(AudioManager.BarricadeDestruction);
+        //AudioManager.PlaySFX(AudioManager.BarricadeDestruction);
     }
 }
