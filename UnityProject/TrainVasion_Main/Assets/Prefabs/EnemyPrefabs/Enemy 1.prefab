@@ -128,6 +128,7 @@ MonoBehaviour:
   currentState: 0
   Selector: {fileID: 1263284928170551617}
   HeroToAttack: {fileID: 0}
+  EnemyStatsPanel: {fileID: 6874817287805668830, guid: 5b6d5357c6f06c54c87f3899ed73432a, type: 3}
 --- !u!1001 &1786451354927694758
 PrefabInstance:
   m_ObjectHideFlags: 0

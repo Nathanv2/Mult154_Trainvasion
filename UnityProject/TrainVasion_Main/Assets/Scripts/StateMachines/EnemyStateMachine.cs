@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -33,8 +34,19 @@ public class EnemyStateMachine : MonoBehaviour
     //alive
     private bool alive = true;
 
+    //PanelStuff
+    private EnemyPanelStats stats;
+    public GameObject EnemyStatsPanel;
+    private Transform EnemyStatsPanelSpacer;
+
     private void Start()
     {
+        //find spacer
+        EnemyStatsPanelSpacer = GameObject.Find("BattleCanvas").transform.Find("EnemyStatsPanel").transform.Find("SpacerEnemyStatsPanel");
+        //create panel and fill information of heroes
+        CreateEnemyPanel();
+
+
         currentState = TurnState.PROCESSING;
         Selector.SetActive(false);
         BSM = GameObject.Find("BattleManager").GetComponent<BattleStateMachine>();
@@ -186,5 +198,26 @@ public class EnemyStateMachine : MonoBehaviour
             enemy.currentHealth = 0f;
             currentState = TurnState.DEAD;
         }
+        UpdateEnemyPanel();
+    }
+
+    //Panel Work
+
+    void CreateEnemyPanel()
+    {
+        EnemyStatsPanel = Instantiate(EnemyStatsPanel);
+        stats = EnemyStatsPanel.GetComponent<EnemyPanelStats>();
+        stats.EnemyName.text = enemy.theName;
+        stats.EnemyHP.text = "HP: " + enemy.currentHealth;//HP: 999
+        stats.EnemyMP.text = "MP: " + enemy.currentMp;//MP: 999
+
+        
+        EnemyStatsPanel.transform.SetParent(EnemyStatsPanelSpacer, false);
+    }
+    //Update stats of damage and or heal
+    void UpdateEnemyPanel()
+    {
+        stats.EnemyHP.text = "HP: " + enemy.currentHealth;
+        stats.EnemyMP.text = "MP: " + enemy.currentMp;
     }
 }

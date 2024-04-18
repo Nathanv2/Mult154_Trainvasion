@@ -62,6 +62,12 @@ public class BattleStateMachine : MonoBehaviour
 
     public GameObject enemyPrefab;
 
+
+    //EnemyGUI
+    public GameObject enemyStatsPanel;
+    public GameObject infoButton;
+    public GameObject infoCloseButton;
+
     public void Awake()
     {
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -322,5 +328,18 @@ public class BattleStateMachine : MonoBehaviour
     {
         ActionPanel.SetActive(false);
         SpecialsPanel.SetActive(true);
+    }
+
+    public void SeeEnemyStats()
+    {
+        enemyStatsPanel.SetActive(true);
+        infoButton.SetActive(false);
+        infoCloseButton.SetActive(true);
+    }
+    public void CloseEnemyStats()
+    {
+        enemyStatsPanel.SetActive(false);
+        infoCloseButton.SetActive(false);
+        infoButton.SetActive(true);
     }
 }
