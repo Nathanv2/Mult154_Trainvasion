@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
 
     //Angel's code variables
 
-
+    AudioManager AudioManager;
 
     void Start()
     {
@@ -47,11 +47,17 @@ public class PlayerController : MonoBehaviour
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
     }
 
+    private void Awake()
+    {
+        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void FixedUpdate()
     {
         if (isMoving)
         {
             MoveTowardsTargetPosition();
+            AudioManager.PlaySFX(AudioManager.BarricadeDestruction);
         }
     }
 

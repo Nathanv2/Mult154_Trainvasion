@@ -78993,7 +78993,7 @@ MonoBehaviour:
   musicSource: {fileID: 1570470714}
   SFXSource: {fileID: 1296723188}
   Invasion: {fileID: 8300000, guid: ea9f72a981c771244ab2d97e990a160b, type: 3}
-  BarricadeDestruction: {fileID: 8300000, guid: 1fd31868d68903d4f9e2c4a3b7ef98f3, type: 3}
+  BarricadeDestruction: {fileID: 8300000, guid: df36832e1c41f264587ac5a67a26aee0, type: 3}
 --- !u!4 &2008714234
 Transform:
   m_ObjectHideFlags: 0
