@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Blockade;
     private Raycasting raycast;
 
-    private float movementSpeed = .5f;
+    private float movementSpeed = 1f;
     private Vector3 targetPosition;
 
     public bool isMoving = false;
