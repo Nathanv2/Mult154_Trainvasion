@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        //GameOver();
+        GameOver();
         CalculateEnemies();
     }
 
