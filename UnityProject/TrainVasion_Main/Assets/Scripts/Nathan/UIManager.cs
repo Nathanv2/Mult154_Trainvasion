@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     public Button goBack;
     public EnergyBar energyBar;
 
-    private float buttonCooldown = 2.5f;
+    private float buttonCooldown = 2f;
     private bool canClick = true;
 
     public TextMeshProUGUI peopleText;
@@ -56,6 +56,7 @@ public class UIManager : MonoBehaviour
         saveButton.gameObject.SetActive(false);
         skipButton.gameObject.SetActive(false);
         playerController.canMove = true;
+        canClick = true;
         Debug.Log("You chose to leave the people to suffer!");
     }
 
@@ -81,6 +82,7 @@ public class UIManager : MonoBehaviour
         skipButton.gameObject.SetActive(false);
         peopleText.gameObject.SetActive(true);
         playerController.canMove = true;
+        canClick = true;
 
         //SceneManager.LoadScene("Test");
         SceneManager.LoadScene("Exploration");
@@ -94,27 +96,28 @@ public class UIManager : MonoBehaviour
 
     public void ArrowButtons(GameObject other)
     {
-        if(canClick && playerController.canMove)
+        if(playerController.canMove)
         {
             if (other.gameObject.CompareTag("Forward Arrow"))
             {
                 rayCast.ActivateMovement();
             }
-            else if (other.gameObject.CompareTag("Left Arrow"))
+            else if (other.gameObject.CompareTag("Left Arrow") && canClick)
             {
                 rayCast.RotateRay(1, 1);
                 rotatePlayer.RotatePlayerLeft();
+                StartCoroutine(ButtonCooldown());
             }
-            else if (other.gameObject.CompareTag("Right Arrow"))
+            else if (other.gameObject.CompareTag("Right Arrow") && canClick)
             {
                 rayCast.RotateRay(0, 0);
                 rotatePlayer.RotatePlayerRight();
+                StartCoroutine(ButtonCooldown());
             }
             else if (other.gameObject.CompareTag("Backward Arrow"))
             {
 
             }
-            StartCoroutine(ButtonCooldown());
         }
     }
     public void GameOver()

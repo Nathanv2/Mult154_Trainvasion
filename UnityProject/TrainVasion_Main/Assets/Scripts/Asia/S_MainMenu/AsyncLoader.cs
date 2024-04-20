@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEditor;
 
 public class AsyncLoader : MonoBehaviour
 {
@@ -13,32 +14,29 @@ public class AsyncLoader : MonoBehaviour
     [Header("Slider")]
     [SerializeField] private Slider loadingSlider;
 
+    private bool LoadedScreen = false;
+
     public void LoadLevelBtn(string levelToLoad)
     {
         mainMenu.SetActive(false);
         loadingScreen.SetActive(true);
-
-        //StartCoroutine(LoadLevelASync());
-
-        StartCoroutine(LoadScene());
+        LoadedScreen = true;
     }
 
-    /*IEnumerator LoadLevelASync()
+    public void Update()
     {
-        AsyncOperation loadOperation = SceneManager.LoadSceneAsync();
-
-         while (!loadOperation.isDone)
+        if(loadingSlider.value == 2)
         {
-            float progressValue = Mathf.Clamp01(loadOperation.progress / 0.9f);
-            loadingSlider.value = progressValue;
-            yield return null;
-        } 
+            SceneManager.LoadScene("Trainvasion");
+        }
+    }
 
-    }*/
-
-    IEnumerator LoadScene()
+    public void FixedUpdate()
     {
-        yield return new WaitForSeconds(5.0f);
-        SceneManager.LoadScene("Trainvasion");
+        if(LoadedScreen)
+        {
+            loadingSlider.value = loadingSlider.value + 0.01f;
+            Debug.Log(loadingSlider.value);
+        }
     }
 }

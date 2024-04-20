@@ -112,4 +112,20 @@ public class GameManager : MonoBehaviour
             enemiesToSpawn = Random.Range(2, 4);
         }
     }
+
+    public void Victory()
+    {
+        if(numPeople <= 10)
+        {
+            Debug.Log("Bad Ending");
+        }
+        else if(numPeople <= 25) 
+        {
+            Debug.Log("Okay Ending");
+        }
+        else if(numPeople <= 50)
+        {
+            Debug.Log("Good Ending");
+        }
+    }
 }

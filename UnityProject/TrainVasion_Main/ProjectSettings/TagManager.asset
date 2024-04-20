@@ -33,6 +33,7 @@ TagManager:
   - RedZone
   - YellowZone
   - BlueZone
+  - The End
   layers:
   - Default
   - TransparentFX

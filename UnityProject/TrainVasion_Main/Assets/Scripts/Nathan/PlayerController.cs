@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject Blockade;
     private Raycasting raycast;
 
-    private float movementSpeed = 1f;
+    public float movementSpeed = 1f;
     private Vector3 targetPosition;
 
     public bool isMoving = false;
@@ -102,6 +102,8 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             stopObject = other.gameObject;
             TakeDamage();
+            transform.position = new Vector3 (targetPosition.x, 5, targetPosition.z);
+
             Debug.Log("Rescue the people or leave them to suffer!");
         }
         else if (other.gameObject.CompareTag("Rescued") || other.gameObject.CompareTag("Blockade Removed"))
@@ -119,6 +121,11 @@ public class PlayerController : MonoBehaviour
 
             Debug.Log("Remove Blockade or Go Back!");
         } 
+
+        if(other.gameObject.CompareTag("The End"))
+        {
+            GM.Victory();
+        }
     }
 
     // If the Rescue is clicked, the stops tag that the player is on will change to "Rescued" and people will be added
