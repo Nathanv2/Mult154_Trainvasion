@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public int damage = 10;
     public int currentEnergy;
     public EnergyBar energyBar;
+    public GameObject Map;
 
     //Angel's code variables
 
@@ -50,6 +51,23 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            Map.SetActive(true);
+        }
+        else if(Input.GetKeyDown(KeyCode.Space)) 
+        {
+            Map.SetActive(false);
+        }
+        
+        /*if(Input.GetKeyUp(KeyCode.M))
+        {
+            Map.SetActive(false);
+        }*/
     }
 
     void FixedUpdate()
@@ -125,6 +143,7 @@ public class PlayerController : MonoBehaviour
         if(other.gameObject.CompareTag("The End"))
         {
             GM.Victory();
+            UImanager.VictoryText();
         }
     }
 

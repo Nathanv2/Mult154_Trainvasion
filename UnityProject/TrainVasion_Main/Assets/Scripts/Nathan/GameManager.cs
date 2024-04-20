@@ -61,6 +61,19 @@ public class GameManager : MonoBehaviour
     {
         GameOver();
         CalculateEnemies();
+
+        if (uiManager == null)
+        {
+            uiManager = FindObjectOfType<UIManager>();
+        }
+        else if(energyBar == null)
+        {
+            energyBar = FindObjectOfType<EnergyBar>();
+        }
+        else if(player == null)
+        {
+            player = GameObject.Find("Player");
+        }
     }
 
     public void CalculateAmountOfPeople(int rescuePeople)

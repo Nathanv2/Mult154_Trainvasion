@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
 
     public TextMeshProUGUI peopleText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI badEndingText;
+    public TextMeshProUGUI okayEndingText;
+    public TextMeshProUGUI goodEndingText;
 
     public GameManager GM;
 
@@ -120,6 +123,22 @@ public class UIManager : MonoBehaviour
             }
         }
     }
+
+    public void VictoryText()
+    {
+        if(GM.numPeople <= 10)
+        {
+            badEndingText.gameObject.SetActive(true);
+        }
+        else if(GM.numPeople <= 25) 
+        { 
+            okayEndingText.gameObject.SetActive(true);
+        }
+        else if(GM.numPeople <= 50)
+        {
+            goodEndingText.gameObject.SetActive(true);
+        }
+    }
     public void GameOver()
     {
         if (energyBar.slider.value <= 0)
@@ -138,5 +157,10 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(buttonCooldown);
 
         canClick = true;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene("Trainvasion");
     }
 }

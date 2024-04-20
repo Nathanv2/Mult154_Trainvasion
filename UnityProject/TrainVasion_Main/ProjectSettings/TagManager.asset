@@ -34,11 +34,12 @@ TagManager:
   - YellowZone
   - BlueZone
   - The End
+  - Clouds
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Clouds
   - Water
   - UI
   - 
