@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class BattleStateMachine : MonoBehaviour
 {
@@ -167,14 +168,16 @@ public class BattleStateMachine : MonoBehaviour
                         HerosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
                     }
                     GM.numPeople= GM.numPeople + Random.Range(1,10);
-                    GM.LoadTrainVasionScene();
+                    SceneManager.UnloadSceneAsync("Combat");
+                    GM.EnableObjects();
                 }
             break;
 
             case (PerformAction.LOSE):
                 {
                     Debug.Log("You lost the battle");
-                    GM.LoadTrainVasionScene();
+                    SceneManager.UnloadSceneAsync("Combat");
+                    GM.EnableObjects();
                 }
             break;
         }

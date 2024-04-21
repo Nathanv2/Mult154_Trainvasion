@@ -16,7 +16,8 @@ public class AlienCollision : MonoBehaviour
     {
         if(collision.gameObject.name == "Standard Alien"){
             AudioManager.PlaySFX(AudioManager.BarricadeDestruction);
-            SceneManager.LoadScene("Combat");
+            SceneManager.LoadScene("Combat", LoadSceneMode.Additive);
+            SceneManager.UnloadSceneAsync("Exploration");
         }
     }
 }

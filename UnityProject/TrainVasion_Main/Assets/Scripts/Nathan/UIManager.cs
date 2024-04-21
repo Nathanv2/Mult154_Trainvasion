@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI goodEndingText;
 
     public GameManager GM;
+    public GameObject asiaCanvas;
 
     public void Start()
     {
@@ -87,9 +88,12 @@ public class UIManager : MonoBehaviour
         playerController.canMove = true;
         canClick = true;
 
+        GM.DisableObjects();
+
         //SceneManager.LoadScene("Test");
-        SceneManager.LoadScene("Exploration");
+        SceneManager.LoadScene("Exploration", LoadSceneMode.Additive);
         Debug.Log("You chose to save the people!");
+
     }
 
     public void StartCombat()

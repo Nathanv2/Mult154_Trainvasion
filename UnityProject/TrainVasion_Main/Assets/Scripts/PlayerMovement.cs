@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
 
-        AddForce = horMove * Vector3.back + verMove * Vector3.right;
+        AddForce = horMove * Vector3.left + verMove * Vector3.back;
     }
 
     // Update is called for once per frame

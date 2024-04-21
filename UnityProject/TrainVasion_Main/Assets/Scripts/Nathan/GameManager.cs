@@ -13,6 +13,9 @@ public class GameManager : MonoBehaviour
     public EnergyBar energyBar;
     public UIManager uiManager;
     public GameObject player;
+    public GameObject asiaCanvas;
+    public GameObject nathanCanvas;
+    public GameObject mainCamera;
 
     //ZoneColliderStuff
 
@@ -141,4 +144,20 @@ public class GameManager : MonoBehaviour
             Debug.Log("Good Ending");
         }
     }
+
+    public void EnableObjects()
+    {
+        asiaCanvas.gameObject.SetActive(true);
+        nathanCanvas.gameObject.SetActive(true);
+        mainCamera.gameObject.SetActive(true);
+    }
+
+    public void DisableObjects()
+    {
+        asiaCanvas.gameObject.SetActive(false);
+        nathanCanvas.gameObject.SetActive(false);
+        mainCamera.gameObject.SetActive(false);
+    }
+
+
 }
