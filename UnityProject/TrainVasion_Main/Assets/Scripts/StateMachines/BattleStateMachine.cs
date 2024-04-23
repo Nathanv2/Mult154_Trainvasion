@@ -167,6 +167,7 @@ public class BattleStateMachine : MonoBehaviour
                     {
                         HerosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
                     }
+                    GM.isOnMainGame = true;
                     GM.numPeople= GM.numPeople + Random.Range(1,10);
                     SceneManager.UnloadSceneAsync("Combat");
                     GM.EnableObjects();

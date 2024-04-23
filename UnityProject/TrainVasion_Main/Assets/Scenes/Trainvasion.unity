@@ -21875,6 +21875,7 @@ MonoBehaviour:
   asiaCanvas: {fileID: 1140734292}
   nathanCanvas: {fileID: 1957649334}
   mainCamera: {fileID: 338969044}
+  isOnMainGame: 0
   isOnRed: 0
   isOnYellow: 0
   isOnBlue: 0
@@ -71978,6 +71979,7 @@ MonoBehaviour:
   goodEndingText: {fileID: 843343133}
   GM: {fileID: 526616481}
   asiaCanvas: {fileID: 1140734292}
+  audioManager: {fileID: 2008714232}
 --- !u!4 &1762901793
 Transform:
   m_ObjectHideFlags: 0

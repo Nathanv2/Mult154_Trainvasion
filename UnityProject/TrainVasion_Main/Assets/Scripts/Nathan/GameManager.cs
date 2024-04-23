@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject nathanCanvas;
     public GameObject mainCamera;
 
+    public bool isOnMainGame;
+
     //ZoneColliderStuff
 
     public bool isOnRed;
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         
-
+        isOnMainGame= true;
         numPeople = 0;
         //FindStuff();
         

@@ -29,11 +29,15 @@ public class UIManager : MonoBehaviour
 
     public GameManager GM;
     public GameObject asiaCanvas;
+    public GameObject audioManager;
 
+    
     public void Start()
     {
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
         energyBar = GameObject.Find("EnergyBarCanvas").GetComponent<EnergyBar>();
+        GM.isOnMainGame = true;
+
     }
 
 
@@ -41,6 +45,7 @@ public class UIManager : MonoBehaviour
     private void Update()
     {
         peopleText.text = "People: " + GM.numPeople;
+        PlayMainMusic();
     }
 
     public void TriggerSaveButtons()
@@ -89,6 +94,10 @@ public class UIManager : MonoBehaviour
         canClick = true;
 
         GM.DisableObjects();
+
+        //disable Music
+        
+        GM.isOnMainGame = false;
 
         //SceneManager.LoadScene("Test");
         SceneManager.LoadScene("Exploration", LoadSceneMode.Additive);
@@ -166,5 +175,17 @@ public class UIManager : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene("Trainvasion");
+    }
+
+    public void PlayMainMusic()
+    {
+        if(GM.isOnMainGame)
+        {
+            audioManager.SetActive(true);
+        }
+        else if(GM.isOnMainGame == false) 
+        {
+            audioManager.SetActive(false);
+        }
     }
 }
