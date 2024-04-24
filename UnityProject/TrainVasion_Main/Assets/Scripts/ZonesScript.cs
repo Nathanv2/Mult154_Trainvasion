@@ -6,4 +6,5 @@ public class ZonesScript : MonoBehaviour
 {
     public bool isOnRed;
     public bool isOnYellow;
+    public bool isOnBlue;
 }

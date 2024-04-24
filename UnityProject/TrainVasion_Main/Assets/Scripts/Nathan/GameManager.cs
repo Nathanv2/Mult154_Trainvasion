@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
     public GameObject nathanCanvas;
     public GameObject mainCamera;
 
+    public int NumberOfHeroes;
+
     public bool isOnMainGame;
 
     //ZoneColliderStuff
@@ -66,6 +68,7 @@ public class GameManager : MonoBehaviour
     {
         GameOver();
         CalculateEnemies();
+        HeroesToSpawn(numPeople);
 
         if (uiManager == null)
         {
@@ -119,18 +122,6 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Trainvasion");
     }
 
-    public void CalculateEnemies()
-    {
-        if(isOnRed==true)
-        {
-            enemiesToSpawn = Random.Range(1,3);
-        }
-        else if(isOnYellow==true)
-        {
-            enemiesToSpawn = Random.Range(2, 4);
-        }
-    }
-
     public void Victory()
     {
         if(numPeople <= 10)
@@ -161,5 +152,44 @@ public class GameManager : MonoBehaviour
         mainCamera.gameObject.SetActive(false);
     }
 
+    //Combat scene functions
+    public void CalculateEnemies()
+    {
+        if (isOnRed == true)
+        {
+            enemiesToSpawn = Random.Range(1, 3);
+        }
+        else if (isOnYellow == true)
+        {
+            enemiesToSpawn = Random.Range(2, 4);
+        }
+        else if (isOnBlue == true)
+        {
+            enemiesToSpawn = 4;
+        }
+    }
 
+    public void HeroesToSpawn(int PeopleHelping)
+    {
+        if(PeopleHelping <= 5)
+        {
+           NumberOfHeroes= 1;
+            Debug.Log("You will spawn 1 hero");
+        }
+        else if(PeopleHelping > 5 && PeopleHelping <= 10)
+        {
+            NumberOfHeroes= 2;
+            Debug.Log("You will spawn 2 heroes");
+        }
+        else if (PeopleHelping > 10 && PeopleHelping <= 15)
+        {
+            NumberOfHeroes = 3;
+            Debug.Log("You will spawn 3 heroes");
+        }
+        else if (PeopleHelping >16)
+        {
+            NumberOfHeroes = 4;
+            Debug.Log("You will spawn 4 heroes");
+        }
+    }
 }

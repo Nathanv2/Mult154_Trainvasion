@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class BattleStateMachine : MonoBehaviour
 {
-  public enum PerformAction
+    public enum PerformAction
     {
         WAIT,
         TAKEACTION,
@@ -58,16 +58,19 @@ public class BattleStateMachine : MonoBehaviour
     //GameManager stuff
     public GameManager GM;
 
-
-    public List<Transform> enemySpawnPoints= new List<Transform>();
+    [Header("Spawn Points")]
+    public List<Transform> enemySpawnPoints = new List<Transform>();
+    public List<Transform> heroSpawnPoints = new List<Transform>();
 
     public GameObject enemyPrefab;
+    public GameObject heroPrefab;
 
-
+    [Header("GUI stuff")]
     //EnemyGUI
     public GameObject enemyStatsPanel;
     public GameObject infoButton;
     public GameObject infoCloseButton;
+    public GameObject endOfBattleScreen;
 
     public void Awake()
     {
@@ -76,9 +79,16 @@ public class BattleStateMachine : MonoBehaviour
         for (int i = 0; i < GM.enemiesToSpawn; i++)
         {
             GameObject NewEnemy = Instantiate(enemyPrefab, enemySpawnPoints[i].position, Quaternion.identity) as GameObject;
-            NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_"+(i+1);
+            NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_" + (i + 1);
             NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
             EnemiesInBattle.Add(NewEnemy);
+        }
+        for (int i = 0; i < GM.NumberOfHeroes; i++)
+        {
+            GameObject NewHero = Instantiate(heroPrefab, heroSpawnPoints[i].position, Quaternion.identity) as GameObject;
+            NewHero.name = NewHero.GetComponent<HeroStateMachine>().hero.theName + "_" + (i + 1);
+            NewHero.GetComponent<HeroStateMachine>().hero.theName = NewHero.name;
+            //HerosInBattle.Add(NewHero);
         }
     }
 
@@ -102,17 +112,17 @@ public class BattleStateMachine : MonoBehaviour
         switch (battleStates)
         {
             case (PerformAction.WAIT):
-                if(PerformList.Count > 0)
+                if (PerformList.Count > 0)
                 {
                     battleStates = PerformAction.TAKEACTION;
                 }
-            break;
+                break;
             case (PerformAction.TAKEACTION):
                 GameObject performer = GameObject.Find(PerformList[0].Attacker);
                 if (PerformList[0].Type == "Enemy")
                 {
                     EnemyStateMachine ESM = performer.GetComponent<EnemyStateMachine>();
-                    for(int i = 0; i<HerosInBattle.Count; i++)
+                    for (int i = 0; i < HerosInBattle.Count; i++)
                     {
                         if (PerformList[0].attackersTarget == HerosInBattle[i])
                         {
@@ -126,7 +136,7 @@ public class BattleStateMachine : MonoBehaviour
                             ESM.HeroToAttack = PerformList[0].attackersTarget;
                             ESM.currentState = EnemyStateMachine.TurnState.ACTION;
                         }
-                    }      
+                    }
                 }
 
                 if (PerformList[0].Type == "Hero")
@@ -136,18 +146,18 @@ public class BattleStateMachine : MonoBehaviour
                     HSM.currentState = HeroStateMachine.TurnState.ACTION;
                 }
                 battleStates = PerformAction.PERFORMACTION;
-            break;
+                break;
             case (PerformAction.PERFORMACTION):
                 //Idle
-            break;
+                break;
 
             case (PerformAction.CHECKALIVE):
-                if(HerosInBattle.Count < 1)
+                if (HerosInBattle.Count < 1)
                 {
                     battleStates = PerformAction.LOSE;
                     //Lose battle
                 }
-                else if(EnemiesInBattle.Count < 1)
+                else if (EnemiesInBattle.Count < 1)
                 {
                     battleStates = PerformAction.WIN;
                     //win battle
@@ -158,29 +168,30 @@ public class BattleStateMachine : MonoBehaviour
                     clearAttackPanel();
                     HeroInput = HeroGUI.ACTIVATE;
                 }
-            break;
+                break;
 
             case (PerformAction.WIN):
                 {
                     Debug.Log("You won the battle");
-                    for(int i = 0; i< HerosInBattle.Count; i++)
+                    for (int i = 0; i < HerosInBattle.Count; i++)
                     {
                         HerosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
                     }
-                    GM.isOnMainGame = true;
-                    GM.numPeople= GM.numPeople + Random.Range(1,10);
-                    SceneManager.UnloadSceneAsync("Combat");
-                    GM.EnableObjects();
+                    endOfBattleScreen.SetActive(true);
+                    TextMeshProUGUI BattleResults = GameObject.Find("BattleStatusText").GetComponent<TextMeshProUGUI>();
+                    BattleResults.text = "You won the battle!!!";
+
                 }
-            break;
+                break;
 
             case (PerformAction.LOSE):
                 {
                     Debug.Log("You lost the battle");
-                    SceneManager.UnloadSceneAsync("Combat");
-                    GM.EnableObjects();
+                    endOfBattleScreen.SetActive(true);
+                    TextMeshProUGUI BattleResults = GameObject.Find("BattleStatusText").GetComponent<TextMeshProUGUI>();
+                    BattleResults.text = "You lost the battle...And your people...we'll take your dignity too.";
                 }
-            break;
+                break;
         }
 
         switch (HeroInput)
@@ -197,11 +208,11 @@ public class BattleStateMachine : MonoBehaviour
 
                     HeroInput = HeroGUI.WAITING;
                 }
-            break;
+                break;
 
             case (HeroGUI.WAITING):
 
-            break;
+                break;
             case (HeroGUI.DONE):
                 HeroInputDone();
                 break;
@@ -213,19 +224,19 @@ public class BattleStateMachine : MonoBehaviour
         PerformList.Add(input);
     }
 
-    
+
     public void EnemyButtons()
     {
         //cleanup
-        foreach(GameObject enemyBtn in enemyBtns)
+        foreach (GameObject enemyBtn in enemyBtns)
         {
             Destroy(enemyBtn);
         }
         enemyBtns.Clear();
         //create buttons
-        foreach(GameObject enemy in EnemiesInBattle)
+        foreach (GameObject enemy in EnemiesInBattle)
         {
-            GameObject newButton = Instantiate (EnemyButton) as GameObject;
+            GameObject newButton = Instantiate(EnemyButton) as GameObject;
             EnemySelectButton button = newButton.GetComponent<EnemySelectButton>();
 
             EnemyStateMachine cur_enemy = enemy.GetComponent<EnemyStateMachine>();
@@ -300,7 +311,7 @@ public class BattleStateMachine : MonoBehaviour
 
         if (HeroesToManage[0].GetComponent<HeroStateMachine>().hero.SpecialAttacks.Count > 0)
         {
-            foreach(BaseAttack specialAtk in HeroesToManage[0].GetComponent<HeroStateMachine>().hero.SpecialAttacks)
+            foreach (BaseAttack specialAtk in HeroesToManage[0].GetComponent<HeroStateMachine>().hero.SpecialAttacks)
             {
                 GameObject SpecialsButton = Instantiate(specialsButton);
                 TextMeshProUGUI SpecialsButtonText = specialsButton.transform.Find("Text (TMP)").gameObject.GetComponent<TextMeshProUGUI>();
@@ -309,7 +320,7 @@ public class BattleStateMachine : MonoBehaviour
                 ATB.specialAttackToPerform = specialAtk;
                 SpecialsButton.transform.SetParent(SpecialsSpacer, false);
                 atkBtns.Add(SpecialsButton);
-            } 
+            }
         }
         else
         {
@@ -346,4 +357,12 @@ public class BattleStateMachine : MonoBehaviour
         infoCloseButton.SetActive(false);
         infoButton.SetActive(true);
     }
+
+    public void ReturnToMainScene()
+    {
+        SceneManager.UnloadSceneAsync("Combat");
+        GM.isOnMainGame = true;
+        GM.EnableObjects();
+    }
+
 }

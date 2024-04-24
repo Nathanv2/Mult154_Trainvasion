@@ -195,11 +195,19 @@ public class PlayerController : MonoBehaviour
         {
             GM.isOnRed = true;
             GM.isOnYellow = false;
+            GM.isOnBlue = false;
         }
      
         if (other.CompareTag("YellowZone"))
         {
             GM.isOnYellow = true;
+            GM.isOnRed = false;
+            GM.isOnBlue = false;
+        }
+        if (other.CompareTag("BlueZone"))
+        {
+            GM.isOnBlue = true; 
+            GM.isOnYellow = false;
             GM.isOnRed = false;
         }
       
