@@ -30,7 +30,7 @@ public class Raycasting : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit, rayRange))
         {
-            if (hit.collider.tag == "1 People" || hit.collider.tag == "5 People" || hit.collider.tag == "10 People" || hit.collider.tag == "Rescued" || hit.collider.tag == "Blockade" || hit.collider.tag == "Blockade Removed")
+            if (hit.collider.tag == "1 People" || hit.collider.tag == "5 People" || hit.collider.tag == "10 People" || hit.collider.tag == "Rescued" || hit.collider.tag == "Blockade" || hit.collider.tag == "Blockade Removed" || hit.collider.tag == "The End")
             {
                 stop = hit.collider.gameObject;
             }
@@ -41,7 +41,7 @@ public class Raycasting : MonoBehaviour
     {
         if (Physics.Raycast(ray, out hit, rayRange))
         {
-            if (hit.collider.tag == "1 People" || hit.collider.tag == "5 People" || hit.collider.tag == "10 People" || hit.collider.tag == "Rescued" || hit.collider.tag == "Blockade" || hit.collider.tag == "Blockade Removed")
+            if (hit.collider.tag == "1 People" || hit.collider.tag == "5 People" || hit.collider.tag == "10 People" || hit.collider.tag == "Rescued" || hit.collider.tag == "Blockade" || hit.collider.tag == "Blockade Removed" || hit.collider.tag == "The End")
             {
                 stop = other.gameObject;
                 Vector3 stopPos = other.transform.position;

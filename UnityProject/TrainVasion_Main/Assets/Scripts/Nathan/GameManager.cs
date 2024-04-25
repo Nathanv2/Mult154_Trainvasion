@@ -88,6 +88,18 @@ public class GameManager : MonoBehaviour
         {
             player = GameObject.Find("Player");
         }
+        else if(asiaCanvas == null)
+        {
+            asiaCanvas = GameObject.Find("Canvas (Asia)");
+        }
+        else if(nathanCanvas == null)
+        {
+            nathanCanvas = GameObject.Find("Canvas (Nathan)");
+        }
+        else if(mainCamera == null)
+        {
+            mainCamera = GameObject.Find("Main Camera");
+        }
     }
 
     public void CalculateAmountOfPeople(int rescuePeople)
