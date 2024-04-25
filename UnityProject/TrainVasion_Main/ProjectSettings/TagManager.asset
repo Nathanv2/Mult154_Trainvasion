@@ -35,6 +35,7 @@ TagManager:
   - BlueZone
   - The End
   - Clouds
+  - BlockadeTrigger
   layers:
   - Default
   - TransparentFX

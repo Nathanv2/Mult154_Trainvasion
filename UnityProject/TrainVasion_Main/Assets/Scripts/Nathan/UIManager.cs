@@ -31,7 +31,11 @@ public class UIManager : MonoBehaviour
     public GameObject asiaCanvas;
     public GameObject audioManager;
 
-    
+    public GameObject blockadeMenu;
+    public GameObject blockadeFail;
+    public GameObject blockadeButton;
+    public int peopleForBlockade;
+
     public void Start()
     {
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
@@ -46,6 +50,7 @@ public class UIManager : MonoBehaviour
     {
         peopleText.text = "People: " + GM.numPeople;
         PlayMainMusic();
+        EnableBlockadeMenu();
     }
 
     public void TriggerSaveButtons()
@@ -116,6 +121,7 @@ public class UIManager : MonoBehaviour
         {
             if (other.gameObject.CompareTag("Forward Arrow"))
             {
+                blockadeMenu.SetActive(false);
                 rayCast.ActivateMovement();
             }
             else if (other.gameObject.CompareTag("Left Arrow") && canClick)
@@ -186,6 +192,25 @@ public class UIManager : MonoBehaviour
         else if(GM.isOnMainGame == false) 
         {
             audioManager.SetActive(false);
+        }
+    }
+    public void EnableBlockadeMenu()
+    {
+        if(GM.blockadeAhead == true)
+        {
+            blockadeMenu.SetActive(true); 
+            if(GM.numPeople >= peopleForBlockade)
+            {
+                blockadeButton.SetActive(true);
+            }
+            else
+            {
+                blockadeFail.SetActive(true);
+            }
+        }
+        else if(GM.blockadeAhead == false)
+        {
+            blockadeMenu.SetActive(false);
         }
     }
 }

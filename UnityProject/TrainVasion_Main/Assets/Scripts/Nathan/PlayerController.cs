@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        UImanager = GameObject.Find("UI Manager").GetComponent<UIManager>();
     }
 
     private void Update()
@@ -105,6 +106,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        //BlockadeStuff
+        if (other.CompareTag("BlockadeTrigger"))
+        {
+            //GM.blockadeAhead = true;
+            GM.blockades.Add(other.transform.parent.gameObject);
+            BlockadeHandler blockadeHandler = other.GetComponentInParent<BlockadeHandler>();
+            int blockadePrice = blockadeHandler.peopleRequired;
+            UImanager.peopleForBlockade = blockadePrice;
+        }
         // If collided with the stop that has the "Blockade" tag, it will grab that gameobject to be used in the method "Remove Blockade" and change the tag
         if (other.gameObject.CompareTag("Blockade"))
         {
@@ -210,7 +220,19 @@ public class PlayerController : MonoBehaviour
             GM.isOnYellow = false;
             GM.isOnRed = false;
         }
-      
+        if (other.CompareTag("BlockadeTrigger"))
+        {
+            GM.blockadeAhead = true;
+        }
+       
     }
-
+    public void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("BlockadeTrigger"))
+        {
+            GM.BlockadeTrigger(false);
+            UImanager.blockadeMenu.SetActive(false);
+            UImanager.blockadeFail.SetActive(false);
+        }
+    }
 }

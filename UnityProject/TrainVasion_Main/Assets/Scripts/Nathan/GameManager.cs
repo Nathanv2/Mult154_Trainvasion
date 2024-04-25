@@ -27,6 +27,11 @@ public class GameManager : MonoBehaviour
     public bool isOnYellow;
     public bool isOnBlue;
 
+    //BloackadeStuff
+    public bool blockadeAhead;
+    public GameObject blockadePrefab;
+    public List<GameObject> blockades = new List<GameObject>();
+
     public int enemiesToSpawn;
 
     //Angel's code (awake is called, its faster than start + wont destroy sceneManager)
@@ -57,7 +62,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        
+        blockadeAhead= false;
         isOnMainGame= true;
         numPeople = 0;
         //FindStuff();
@@ -69,6 +74,7 @@ public class GameManager : MonoBehaviour
         GameOver();
         CalculateEnemies();
         HeroesToSpawn(numPeople);
+        BlockadeTrigger(blockadeAhead);
 
         if (uiManager == null)
         {
@@ -176,20 +182,42 @@ public class GameManager : MonoBehaviour
            NumberOfHeroes= 1;
             Debug.Log("You will spawn 1 hero");
         }
-        else if(PeopleHelping > 5 && PeopleHelping <= 10)
+        else if(PeopleHelping > 5 && PeopleHelping <= 15)
         {
             NumberOfHeroes= 2;
             Debug.Log("You will spawn 2 heroes");
         }
-        else if (PeopleHelping > 10 && PeopleHelping <= 15)
+        else if (PeopleHelping > 15 && PeopleHelping <= 30)
         {
             NumberOfHeroes = 3;
             Debug.Log("You will spawn 3 heroes");
         }
-        else if (PeopleHelping >16)
+        else if (PeopleHelping >30)
         {
             NumberOfHeroes = 4;
             Debug.Log("You will spawn 4 heroes");
         }
+    }
+
+    public void BlockadeTrigger(bool BlockadeAhead)
+    {
+        if(BlockadeAhead == true)
+        {
+            Debug.Log("Theres a blockade");
+            
+        }
+        else if(BlockadeAhead == false) 
+        {
+            blockadeAhead= false;
+        }
+    }
+    public void DestroyBlockade()
+    {
+        Destroy(blockades[0].gameObject);
+        blockades.Clear();
+        uiManager.blockadeMenu.SetActive(false);
+        uiManager.blockadeFail.SetActive(false);
+        uiManager.blockadeButton.SetActive(false);
+        blockadeAhead= false;
     }
 }
