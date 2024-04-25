@@ -13,7 +13,9 @@ public class GameManager : MonoBehaviour
     public EnergyBar energyBar;
     public UIManager uiManager;
     public GameObject player;
-    public GameObject asiaCanvas;
+    public GameObject backgroundBar;
+    public GameObject energyBarUI;
+    public GameObject controlPanel;
     public GameObject nathanCanvas;
     public GameObject mainCamera;
 
@@ -88,10 +90,6 @@ public class GameManager : MonoBehaviour
         {
             player = GameObject.Find("Player");
         }
-        else if(asiaCanvas == null)
-        {
-            asiaCanvas = GameObject.Find("Canvas (Asia)");
-        }
         else if(nathanCanvas == null)
         {
             nathanCanvas = GameObject.Find("Canvas (Nathan)");
@@ -99,6 +97,18 @@ public class GameManager : MonoBehaviour
         else if(mainCamera == null)
         {
             mainCamera = GameObject.Find("Main Camera");
+        }
+        else if(backgroundBar == null)
+        {
+            backgroundBar = GameObject.Find("BackgroundBar");
+        }
+        else if(energyBar == null)
+        {
+            //energyBar = GameObject.FindWithTag("EnergyBar");
+        }
+        else if(controlPanel == null)
+        {
+            controlPanel = GameObject.Find("ControlPanel");
         }
     }
 
@@ -158,14 +168,18 @@ public class GameManager : MonoBehaviour
 
     public void EnableObjects()
     {
-        asiaCanvas.gameObject.SetActive(true);
+        backgroundBar.gameObject.SetActive(true);
+        energyBarUI.gameObject.SetActive(true);
+        controlPanel.gameObject.SetActive(true);
         nathanCanvas.gameObject.SetActive(true);
         mainCamera.gameObject.SetActive(true);
     }
 
     public void DisableObjects()
     {
-        asiaCanvas.gameObject.SetActive(false);
+        backgroundBar.gameObject.SetActive(false);
+        energyBarUI.gameObject.SetActive(false);
+        controlPanel.gameObject.SetActive(false);
         nathanCanvas.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(false);
     }
@@ -192,7 +206,7 @@ public class GameManager : MonoBehaviour
         if(PeopleHelping <= 5)
         {
            NumberOfHeroes= 1;
-            Debug.Log("You will spawn 1 hero");
+            //Debug.Log("You will spawn 1 hero");
         }
         else if(PeopleHelping > 5 && PeopleHelping <= 15)
         {

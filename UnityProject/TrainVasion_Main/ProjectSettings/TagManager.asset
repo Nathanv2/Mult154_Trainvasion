@@ -36,6 +36,8 @@ TagManager:
   - The End
   - Clouds
   - BlockadeTrigger
+  - Alien
+  - EnergyBar
   layers:
   - Default
   - TransparentFX

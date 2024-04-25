@@ -16,7 +16,7 @@ public class SpawnManager : MonoBehaviour
     {
         float randZPos = Random.Range(-zPosRange, zPosRange);
         int CloudsIndex = Random.Range(0, Clouds.Length);
-        Vector3 randPos = new Vector3(-415, 13, randZPos);
+        Vector3 randPos = new Vector3(-415, 37, randZPos);
         Instantiate(Clouds[CloudsIndex], randPos, Clouds[CloudsIndex].transform.rotation);
     }
 }

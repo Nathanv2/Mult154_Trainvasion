@@ -7,6 +7,16 @@ public class EnergySource : MonoBehaviour
     public EnergyBar energyBar;
     public int energy = 5;
 
+
+    private void Update()
+    {
+        if(energyBar == null)
+        {
+            
+        }
+        
+    }
+
     public void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("Player"))
