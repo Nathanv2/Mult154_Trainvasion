@@ -102,10 +102,6 @@ public class GameManager : MonoBehaviour
         {
             backgroundBar = GameObject.Find("BackgroundBar");
         }
-        else if(energyBar == null)
-        {
-            //energyBar = GameObject.FindWithTag("EnergyBar");
-        }
         else if(controlPanel == null)
         {
             controlPanel = GameObject.Find("ControlPanel");
@@ -169,7 +165,6 @@ public class GameManager : MonoBehaviour
     public void EnableObjects()
     {
         backgroundBar.gameObject.SetActive(true);
-        energyBarUI.gameObject.SetActive(true);
         controlPanel.gameObject.SetActive(true);
         nathanCanvas.gameObject.SetActive(true);
         mainCamera.gameObject.SetActive(true);
@@ -178,7 +173,6 @@ public class GameManager : MonoBehaviour
     public void DisableObjects()
     {
         backgroundBar.gameObject.SetActive(false);
-        energyBarUI.gameObject.SetActive(false);
         controlPanel.gameObject.SetActive(false);
         nathanCanvas.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(false);

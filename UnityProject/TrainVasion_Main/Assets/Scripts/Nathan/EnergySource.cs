@@ -10,11 +10,10 @@ public class EnergySource : MonoBehaviour
 
     private void Update()
     {
-        if(energyBar == null)
+        if (energyBar == null)
         {
-            
-        }
-        
+            energyBar = FindObjectOfType<EnergyBar>();
+        }     
     }
 
     public void OnTriggerEnter(Collider other)
@@ -22,6 +21,7 @@ public class EnergySource : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             energyBar.slider.value += 10;
+            Destroy(gameObject);
             Debug.Log("Added 10 energy!");
         }
     }
