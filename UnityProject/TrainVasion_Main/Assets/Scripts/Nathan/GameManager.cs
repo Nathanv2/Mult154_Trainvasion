@@ -122,8 +122,19 @@ public class GameManager : MonoBehaviour
         {
             numPeople = numPeople + 10;
         }
+        else if(numPeople <= 0)
+        {
+            numPeople = 0;
+        }
     }
-
+    public void ResetPeopleNum()
+    {
+        if(numPeople <= 0)
+        {
+            numPeople = 0;
+        }
+    }
+   
     public void GameOver()
     {
         if (energyBar.slider.value <= 0)
