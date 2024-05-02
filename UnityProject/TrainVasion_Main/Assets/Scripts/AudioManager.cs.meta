@@ -3,7 +3,12 @@ guid: 5e2397b7efa5a2048b7aaa5ecc3e30b6
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - musicSource: {instanceID: 0}
+  - SFXSource: {instanceID: 0}
+  - invasion: {instanceID: 0}
+  - streetcar: {fileID: 8300000, guid: e1a75776f005439469f89a17a986c567, type: 3}
+  - destruction: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
