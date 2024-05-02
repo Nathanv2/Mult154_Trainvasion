@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using System.Security.AccessControl;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -15,9 +17,10 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject backgroundBar;
     public GameObject energyBarUI;
-    public GameObject controlPanel;
     public GameObject nathanCanvas;
     public GameObject mainCamera;
+    public GameObject uiEmptyGO;
+    //public GameObject controlPanel;
 
     public int NumberOfHeroes;
 
@@ -102,9 +105,13 @@ public class GameManager : MonoBehaviour
         {
             backgroundBar = GameObject.Find("BackgroundBar");
         }
-        else if(controlPanel == null)
+        else if(uiEmptyGO == null)
         {
-            controlPanel = GameObject.Find("ControlPanel");
+            uiEmptyGO = GameObject.Find("UI");
+        }
+        else if(energyBarUI == null)
+        {
+            energyBarUI = GameObject.Find("EnergyBarCanvas");
         }
     }
 
@@ -176,17 +183,19 @@ public class GameManager : MonoBehaviour
     public void EnableObjects()
     {
         backgroundBar.gameObject.SetActive(true);
-        controlPanel.gameObject.SetActive(true);
         nathanCanvas.gameObject.SetActive(true);
         mainCamera.gameObject.SetActive(true);
+        uiEmptyGO.gameObject.SetActive(true);
+        //controlPanel.gameObject.SetActive(true);
     }
 
     public void DisableObjects()
     {
         backgroundBar.gameObject.SetActive(false);
-        controlPanel.gameObject.SetActive(false);
         nathanCanvas.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(false);
+        uiEmptyGO.SetActive(false);
+        //controlPanel.SetActive(false);
     }
 
     //Combat scene functions
