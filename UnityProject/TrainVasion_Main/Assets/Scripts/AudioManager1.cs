@@ -7,12 +7,12 @@ public class AudioManager1 : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("---------- Audio Clip ----------")]
-    public AudioClip CombatMusic;
-    public AudioClip AttackImpact;
+    public AudioClip Combat;
+    public AudioClip Impact;
 
     private void Start()
     {
-        musicSource.clip = CombatMusic;
+        musicSource.clip = Combat;
         musicSource.Play();
     }
 

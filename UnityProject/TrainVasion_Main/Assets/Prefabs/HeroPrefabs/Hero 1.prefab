@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5652895690721353288}
   - component: {fileID: 5652895690721353289}
   - component: {fileID: 5652895690721353334}
+  - component: {fileID: 7784427013812270605}
+  - component: {fileID: 9206476004636970958}
   m_Layer: 0
   m_Name: Hero 1
   m_TagString: Hero
@@ -133,6 +135,32 @@ MonoBehaviour:
   Selector: {fileID: 5215985108732874256}
   EnemyToAttack: {fileID: 0}
   HeroPanel: {fileID: 6874817287805668830, guid: f0c068e49afcfd546a9ed3535f7f073a, type: 3}
+--- !u!65 &7784427013812270605
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652895690721353332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &9206476004636970958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5652895690721353332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b6d1fa9597a684c84e47c53c410dea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioManager1: {fileID: 0}
 --- !u!1001 &4692803768743290103
 PrefabInstance:
   m_ObjectHideFlags: 0
