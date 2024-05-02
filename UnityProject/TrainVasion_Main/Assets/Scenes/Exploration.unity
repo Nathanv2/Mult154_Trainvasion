@@ -1079,7 +1079,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1699,9 +1699,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 1504416104}
   SFXSource: {fileID: 753354382}
-  Invasion: {fileID: 8300000, guid: 884c5cd7b667817498af7b13fe2ce793, type: 3}
-  Move: {fileID: 0}
-  BarricadeDestruction: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
+  invasion: {fileID: 8300000, guid: 884c5cd7b667817498af7b13fe2ce793, type: 3}
+  streetcar: {fileID: 0}
+  destruction: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
 --- !u!4 &2003271555
 Transform:
   m_ObjectHideFlags: 0
