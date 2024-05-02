@@ -160,6 +160,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b6d1fa9597a684c84e47c53c410dea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
+=======
+  audioManager1: {fileID: 0}
+>>>>>>> parent of c69b20f (SoundGood)
 --- !u!1001 &4692803768743290103
 PrefabInstance:
   m_ObjectHideFlags: 0

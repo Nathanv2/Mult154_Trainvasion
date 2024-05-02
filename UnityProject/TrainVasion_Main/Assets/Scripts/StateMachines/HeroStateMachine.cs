@@ -37,8 +37,6 @@ public class HeroStateMachine : MonoBehaviour
     public GameObject HeroPanel;
     private Transform HeroPanelSpacer;
 
-    public AudioSource audioSource;
-
     private void Start()
     {
         //find spacer
@@ -203,7 +201,10 @@ public class HeroStateMachine : MonoBehaviour
     {
         float calc_damage = hero.currentAttack + BSM.PerformList[0].choosenAttack.attackDamage;
         EnemyToAttack.GetComponent<EnemyStateMachine>().TakeDamage(calc_damage);
+<<<<<<< HEAD
         //audioSource.Play();
+=======
+>>>>>>> parent of c69b20f (SoundGood)
     }
 
 
