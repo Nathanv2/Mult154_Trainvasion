@@ -2039,7 +2039,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7759,7 +7759,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 608037690}
   SFXSource: {fileID: 435562838}
-  invasion: {fileID: 0}
+  invasion: {fileID: 8300000, guid: 65f21f62428f4704c91dcc82fc2bc4fa, type: 3}
   streetcar: {fileID: 0}
   destruction: {fileID: 0}
 --- !u!4 &1733041367
