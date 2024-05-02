@@ -7,13 +7,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource SFXSource;
 
     [Header("---------- Audio Clip ----------")]
-    public AudioClip Invasion;
-    public AudioClip Move;
-    public AudioClip BarricadeDestruction;
+    public AudioClip invasion;
+    public AudioClip streetcar;
+    public AudioClip destruction;
 
     private void Start()
     {
-        musicSource.clip = Invasion;
+        musicSource.clip = invasion;
         musicSource.Play();
     }
 

@@ -15,7 +15,7 @@ public class Impact2 : MonoBehaviour
     {
         if (other.CompareTag("Hero"))
         {
-            AudioManager.PlaySFX(AudioManager.Move);
+            AudioManager.PlaySFX(AudioManager.streetcar);
         }
     }
 }

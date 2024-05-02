@@ -27,10 +27,11 @@ public class PlayerController : MonoBehaviour
     public int currentEnergy;
     public EnergyBar energyBar;
     public GameObject Map;
+    public bool init = true;
 
     //Angel's code variables
 
-    AudioManager AudioManager;
+    public AudioSource audioSource;
 
     void Start()
     {
@@ -46,12 +47,6 @@ public class PlayerController : MonoBehaviour
 
         //this finds the object from inside the game
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
-
-    private void Awake()
-    {
-        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        UImanager = GameObject.Find("UI Manager").GetComponent<UIManager>();
     }
 
     private void Update()
@@ -75,8 +70,10 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving)
         {
-            MoveTowardsTargetPosition();
-            AudioManager.PlaySFX(AudioManager.Move);
+            if (init = true)
+            {
+                MoveTowardsTargetPosition();
+            }
         }
     }
 
@@ -84,6 +81,7 @@ public class PlayerController : MonoBehaviour
     {
         targetPosition = NextStop;
         isMoving = true;
+        audioSource.Play();
     }
 
     void MoveTowardsTargetPosition()

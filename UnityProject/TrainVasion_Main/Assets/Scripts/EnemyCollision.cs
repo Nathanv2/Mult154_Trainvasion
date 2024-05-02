@@ -16,7 +16,7 @@ public class EnemyCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            AudioManager.PlaySFX(AudioManager.Move);
+            AudioManager.PlaySFX(AudioManager.streetcar);
         }
     }
 }
