@@ -6,10 +6,10 @@ using TMPro;
 
 public class SettingsMenuManager : MonoBehaviour
 {
-    public TMP_Dropdown graphicsDropdown;
-
-    public void ChangeGraphicsQuality()
+   
+    public void SetQuality(int qualityIndex)
     {
-        QualitySettings.SetQualityLevel(graphicsDropdown.value);
+        QualitySettings.SetQualityLevel(qualityIndex);
     }
+    
 }
