@@ -350,6 +350,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66c2ee3db92ac9b4496897c21fdb42f1, type: 3}
+--- !u!1 &208030492 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3571251696313225728, guid: da32fbd19b1a7ac4abefbb6e7df7023d, type: 3}
+  m_PrefabInstance: {fileID: 929077112}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &208030493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 208030492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c8125fb7a5e2b144a1b4c573ed8927b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &599657755
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1700,7 @@ MonoBehaviour:
   musicSource: {fileID: 1504416104}
   SFXSource: {fileID: 753354382}
   Invasion: {fileID: 8300000, guid: 884c5cd7b667817498af7b13fe2ce793, type: 3}
+  Move: {fileID: 0}
   BarricadeDestruction: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
 --- !u!4 &2003271555
 Transform:
