@@ -117,17 +117,17 @@ MonoBehaviour:
     theName: Train Operator
     baseHealth: 100
     currentHealth: 100
-    baseMp: 10
-    currentMp: 10
+    baseMp: 15
+    currentMp: 15
     baseAttack: 15
     currentAttack: 15
     baseDefense: 5
     currentDefense: 5
     attacks:
     - {fileID: 6308058222861786296, guid: cf81c0c46d5ddcb438c9995949b2ec3c, type: 3}
-    stamina: 10
-    intellect: 10
-    dexterity: 10
+    stamina: 1
+    intellect: 1
+    dexterity: 1
     agility: 10
     SpecialAttacks:
     - {fileID: -6549609148465764340, guid: ffbe1d55aad000b43b7d755ffd0fabc7, type: 3}
@@ -135,6 +135,7 @@ MonoBehaviour:
   Selector: {fileID: 3287772916866728225}
   EnemyToAttack: {fileID: 0}
   HeroPanel: {fileID: 6874817287805668830, guid: f0c068e49afcfd546a9ed3535f7f073a, type: 3}
+  audioSource: {fileID: 0}
 --- !u!65 &704169020722641212
 BoxCollider:
   m_ObjectHideFlags: 0

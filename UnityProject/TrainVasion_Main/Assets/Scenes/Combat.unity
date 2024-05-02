@@ -770,8 +770,22 @@ MonoBehaviour:
   - {fileID: 895950759}
   - {fileID: 961505185}
   - {fileID: 1864303307}
+  redZoneEnemies:
+  - {fileID: 0}
+  yellowZoneEnemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  BlueZoneEnemies:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  heroesToBeUsed:
+  - {fileID: 627580527267851573, guid: ad34437f192d9b644804f72aee9ff050, type: 3}
+  - {fileID: 5685162355184104598, guid: 405ec0657f143a44d81839b56684a2e1, type: 3}
   enemyPrefab: {fileID: 1041550948603961625, guid: 3d276ac4cfd3ee44bbdd0c71700b51b6, type: 3}
-  heroPrefab: {fileID: 5652895690721353332, guid: d23d40cb0dcaabe42ba538f0cd8ffb0f, type: 3}
+  heroPrefab: {fileID: 3148434436630352197, guid: 87aacb4ecee9ae14b96c3b4ede62334c, type: 3}
   enemyStatsPanel: {fileID: 975248925}
   infoButton: {fileID: 1606253817}
   infoCloseButton: {fileID: 831456194}

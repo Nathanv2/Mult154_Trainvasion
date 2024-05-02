@@ -44,3 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8567af4389f3da41a2b35b1c80cb7e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackName: Heavy Slam
+  attackDescription: Deliver a devastating slam to your foes
+  attackDamage: 20
+  attackCost: 10

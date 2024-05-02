@@ -203,7 +203,7 @@ public class HeroStateMachine : MonoBehaviour
     {
         float calc_damage = hero.currentAttack + BSM.PerformList[0].choosenAttack.attackDamage;
         EnemyToAttack.GetComponent<EnemyStateMachine>().TakeDamage(calc_damage);
-        audioSource.Play();
+        //audioSource.Play();
     }
 
 

@@ -62,6 +62,12 @@ public class BattleStateMachine : MonoBehaviour
     public List<Transform> enemySpawnPoints = new List<Transform>();
     public List<Transform> heroSpawnPoints = new List<Transform>();
 
+    [Header("PrefabLists")]
+    public List<GameObject> redZoneEnemies= new List<GameObject>();
+    public List<GameObject> yellowZoneEnemies = new List<GameObject>();
+    public List<GameObject> BlueZoneEnemies = new List<GameObject>();
+
+    public List<GameObject> heroesToBeUsed= new List<GameObject>();
     public GameObject enemyPrefab;
     public GameObject heroPrefab;
 

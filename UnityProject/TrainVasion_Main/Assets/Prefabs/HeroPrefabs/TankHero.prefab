@@ -130,11 +130,12 @@ MonoBehaviour:
     dexterity: 1
     agility: 1
     SpecialAttacks:
-    - {fileID: -6549609148465764340, guid: ffbe1d55aad000b43b7d755ffd0fabc7, type: 3}
+    - {fileID: -5303342059484916854, guid: a0cad0d2539ae3941923b37bb795a5d6, type: 3}
   currentState: 0
   Selector: {fileID: 1055079633051516241}
   EnemyToAttack: {fileID: 0}
   HeroPanel: {fileID: 6874817287805668830, guid: f0c068e49afcfd546a9ed3535f7f073a, type: 3}
+  audioSource: {fileID: 0}
 --- !u!65 &3080836684191155532
 BoxCollider:
   m_ObjectHideFlags: 0
