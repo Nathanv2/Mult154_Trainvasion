@@ -27,7 +27,6 @@ public class PlayerController : MonoBehaviour
     public int currentEnergy;
     public EnergyBar energyBar;
     public GameObject Map;
-    public bool init = true;
 
     //Angel's code variables
 
@@ -70,10 +69,7 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving)
         {
-            if (init = true)
-            {
-                MoveTowardsTargetPosition();
-            }
+            MoveTowardsTargetPosition();
         }
     }
 
