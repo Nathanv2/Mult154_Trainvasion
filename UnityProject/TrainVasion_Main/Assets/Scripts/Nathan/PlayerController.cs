@@ -32,6 +32,12 @@ public class PlayerController : MonoBehaviour
 
     AudioManager AudioManager;
 
+    private void Awake()
+    {
+        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        UImanager = GameObject.Find("UI Manager").GetComponent<UIManager>();
+    }
+
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
@@ -46,12 +52,6 @@ public class PlayerController : MonoBehaviour
 
         //this finds the object from inside the game
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
-    }
-
-    private void Awake()
-    {
-        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-        UImanager = GameObject.Find("UI Manager").GetComponent<UIManager>();
     }
 
     private void Update()
@@ -75,8 +75,8 @@ public class PlayerController : MonoBehaviour
     {
         if (isMoving)
         {
+            AudioManager.PlaySFX(AudioManager.Move);
             MoveTowardsTargetPosition();
-            AudioManager.PlaySFX(AudioManager.BarricadeDestruction);
         }
     }
 

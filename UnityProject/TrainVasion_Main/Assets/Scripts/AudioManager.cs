@@ -8,6 +8,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("---------- Audio Clip ----------")]
     public AudioClip Invasion;
+    public AudioClip Move;
     public AudioClip BarricadeDestruction;
 
     private void Start()
