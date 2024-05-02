@@ -311,7 +311,7 @@ public class BattleStateMachine : MonoBehaviour
         SpecialAttackButton.transform.SetParent(actionSpacer, false);
         atkBtns.Add(SpecialAttackButton);
 
-        if (HeroesToManage[0].GetComponent<HeroStateMachine>().hero.SpecialAttacks.Count > 0)
+        if (HeroesToManage[0].GetComponent<HeroStateMachine>().hero.SpecialAttacks.Count > 0 && HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentMp >= HeroesToManage[0].GetComponent<HeroStateMachine>().hero.baseMp)
         {
             foreach (BaseAttack specialAtk in HeroesToManage[0].GetComponent<HeroStateMachine>().hero.SpecialAttacks)
             {
@@ -339,6 +339,7 @@ public class BattleStateMachine : MonoBehaviour
         HeroChoice.choosenAttack = chooseSpecial;
         SpecialsPanel.SetActive(false);
         EnemySelectPanel.SetActive(true);
+        HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentMp -= chooseSpecial.attackCost;
     }
 
     public void Input3()//switching to speacials

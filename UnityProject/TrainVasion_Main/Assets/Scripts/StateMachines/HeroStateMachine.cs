@@ -46,7 +46,7 @@ public class HeroStateMachine : MonoBehaviour
         
 
         startPosition = transform.position;
-        cur_cooldown = Random.Range(0, 2.5f);
+        cur_cooldown = Random.Range(0, hero.agility);
         Selector.SetActive(false);
         BSM = GameObject.Find("BattleManager").GetComponent<BattleStateMachine>();
         currentState = TurnState.PROCESSING; 
@@ -123,7 +123,7 @@ public class HeroStateMachine : MonoBehaviour
 
     void UpdateProgressBar()
     {
-        cur_cooldown = cur_cooldown + Time.deltaTime;
+        cur_cooldown = cur_cooldown + Time.deltaTime * hero.dexterity;
         float calc_cooldown = cur_cooldown / max_cooldown;
         ProgressBar.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), ProgressBar.transform.localScale.y, ProgressBar.transform.localScale.z);
         if(cur_cooldown >= max_cooldown)
