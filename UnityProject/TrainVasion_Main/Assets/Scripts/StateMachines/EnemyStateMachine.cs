@@ -39,6 +39,8 @@ public class EnemyStateMachine : MonoBehaviour
     public GameObject EnemyStatsPanel;
     private Transform EnemyStatsPanelSpacer;
 
+    public AudioSource audioSource;
+
     private void Start()
     {
         //find spacer
@@ -188,6 +190,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         float calc_damage = enemy.currentAttack + BSM.PerformList[0].choosenAttack.attackDamage;
         HeroToAttack.GetComponent<HeroStateMachine> ().TakeDamage(calc_damage);
+        audioSource.Play(); 
     }
 
     public void TakeDamage(float getDamageAmount)

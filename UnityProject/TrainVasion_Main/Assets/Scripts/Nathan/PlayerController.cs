@@ -185,6 +185,7 @@ public class PlayerController : MonoBehaviour
                 Blockade.gameObject.tag = "Blockade Removed";
                 Blockade.gameObject.SetActive(false);
                 Debug.Log("Removed Blockade");
+                audioSource.Play();
             }
             else
             {
