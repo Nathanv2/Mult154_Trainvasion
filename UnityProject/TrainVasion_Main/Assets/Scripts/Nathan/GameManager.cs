@@ -5,6 +5,7 @@ using System.Security.AccessControl;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,7 +21,9 @@ public class GameManager : MonoBehaviour
     public GameObject nathanCanvas;
     public GameObject mainCamera;
     public GameObject uiEmptyGO;
-    //public GameObject controlPanel;
+    public GameObject controlPanel;
+
+    public Image controlPanelImage;
 
     public int NumberOfHeroes;
 
@@ -107,11 +110,19 @@ public class GameManager : MonoBehaviour
         }
         else if(uiEmptyGO == null)
         {
-            uiEmptyGO = GameObject.Find("UI");
+            uiEmptyGO = GameObject.Find("UI TEST 2");
         }
         else if(energyBarUI == null)
         {
             energyBarUI = GameObject.Find("EnergyBarCanvas");
+        }
+        else if(controlPanel == null)
+        {
+            controlPanel = GameObject.Find("Control Panel");
+            if(controlPanel != null)
+            {
+                controlPanelImage = controlPanel.GetComponent<Image>();
+            }
         }
     }
 
@@ -185,8 +196,8 @@ public class GameManager : MonoBehaviour
         backgroundBar.gameObject.SetActive(true);
         nathanCanvas.gameObject.SetActive(true);
         mainCamera.gameObject.SetActive(true);
+        controlPanelImage.enabled = true;
         uiEmptyGO.gameObject.SetActive(true);
-        //controlPanel.gameObject.SetActive(true);
     }
 
     public void DisableObjects()
@@ -194,8 +205,8 @@ public class GameManager : MonoBehaviour
         backgroundBar.gameObject.SetActive(false);
         nathanCanvas.gameObject.SetActive(false);
         mainCamera.gameObject.SetActive(false);
+        controlPanelImage.enabled = false;
         uiEmptyGO.SetActive(false);
-        //controlPanel.SetActive(false);
     }
 
     //Combat scene functions
