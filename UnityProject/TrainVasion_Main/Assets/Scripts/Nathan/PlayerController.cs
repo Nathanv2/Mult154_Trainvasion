@@ -103,7 +103,7 @@ public class PlayerController : MonoBehaviour
         //BlockadeStuff
         if (other.CompareTag("BlockadeTrigger"))
         {
-            //GM.blockadeAhead = true;
+            GM.blockadeAhead = true;
             GM.blockades.Add(other.transform.parent.gameObject);
             BlockadeHandler blockadeHandler = other.GetComponentInParent<BlockadeHandler>();
             int blockadePrice = blockadeHandler.peopleRequired;
@@ -228,6 +228,7 @@ public class PlayerController : MonoBehaviour
             GM.BlockadeTrigger(false);
             UImanager.blockadeMenu.SetActive(false);
             UImanager.blockadeFail.SetActive(false);
+            UImanager.blockadeButton.SetActive(false);
         }
     }
 }
