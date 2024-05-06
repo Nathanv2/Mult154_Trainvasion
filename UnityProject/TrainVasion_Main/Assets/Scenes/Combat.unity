@@ -766,10 +766,10 @@ MonoBehaviour:
   - {fileID: 955277664}
   - {fileID: 394895891}
   heroSpawnPoints:
-  - {fileID: 912774631}
   - {fileID: 895950759}
   - {fileID: 961505185}
   - {fileID: 1864303307}
+  mainHeroSpawnPoint: {fileID: 912774631}
   redZoneEnemies:
   - {fileID: 0}
   yellowZoneEnemies:
@@ -1874,7 +1874,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &975248926
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1892,9 +1892,9 @@ RectTransform:
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.6466666}
-  m_AnchorMax: {x: 0.28589597, y: 0.9266667}
-  m_AnchoredPosition: {x: 1.75, y: -0.47000122}
-  m_SizeDelta: {x: 3.5067139, y: 2.3399963}
+  m_AnchorMax: {x: 0.28589597, y: 0.9955556}
+  m_AnchoredPosition: {x: 1.75, y: 0.17999268}
+  m_SizeDelta: {x: 3.5067, y: 3.6399994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &975248927
 MonoBehaviour:
@@ -2626,7 +2626,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1606253818
 RectTransform:
   m_ObjectHideFlags: 0

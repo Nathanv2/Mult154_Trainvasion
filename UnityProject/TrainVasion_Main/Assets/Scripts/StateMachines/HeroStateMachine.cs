@@ -125,7 +125,7 @@ public class HeroStateMachine : MonoBehaviour
 
     void UpdateProgressBar()
     {
-        cur_cooldown = cur_cooldown + Time.deltaTime * hero.dexterity;
+        cur_cooldown = cur_cooldown + Time.deltaTime * hero.dexterity / 1.5f;
         float calc_cooldown = cur_cooldown / max_cooldown;
         ProgressBar.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), ProgressBar.transform.localScale.y, ProgressBar.transform.localScale.z);
         if(cur_cooldown >= max_cooldown)

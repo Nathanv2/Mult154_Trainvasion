@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public Image controlPanelImage;
 
     public int NumberOfHeroes;
+    public List<GameObject> ListOfHeroes = new List<GameObject>();
 
     public bool isOnMainGame;
 
@@ -230,22 +231,22 @@ public class GameManager : MonoBehaviour
     {
         if(PeopleHelping <= 5)
         {
-           NumberOfHeroes= 1;
+           NumberOfHeroes= 0;
             //Debug.Log("You will spawn 1 hero");
         }
         else if(PeopleHelping > 5 && PeopleHelping <= 15)
         {
-            NumberOfHeroes= 2;
+            NumberOfHeroes= 1;
             Debug.Log("You will spawn 2 heroes");
         }
         else if (PeopleHelping > 15 && PeopleHelping <= 30)
         {
-            NumberOfHeroes = 3;
+            NumberOfHeroes = 2;
             Debug.Log("You will spawn 3 heroes");
         }
         else if (PeopleHelping >30)
         {
-            NumberOfHeroes = 4;
+            NumberOfHeroes = 3;
             Debug.Log("You will spawn 4 heroes");
         }
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class EnemyStateMachine : MonoBehaviour
 {
@@ -38,6 +38,7 @@ public class EnemyStateMachine : MonoBehaviour
     private EnemyPanelStats stats;
     public GameObject EnemyStatsPanel;
     private Transform EnemyStatsPanelSpacer;
+    private Image ProgressBar;
 
     public AudioSource audioSource;
 
@@ -117,8 +118,9 @@ public class EnemyStateMachine : MonoBehaviour
 
     void UpdateProgressBar()
     {
-        cur_cooldown = cur_cooldown + Time.deltaTime;
-        
+        cur_cooldown = cur_cooldown + Time.deltaTime * enemy.dexterity / 1.0f;
+        float calc_cooldown = cur_cooldown / max_cooldown;
+        ProgressBar.transform.localScale = new Vector3(Mathf.Clamp(calc_cooldown, 0, 1), ProgressBar.transform.localScale.y, ProgressBar.transform.localScale.z);
         if (cur_cooldown >= max_cooldown)
         {
             currentState = TurnState.CHOOSEACTION;
@@ -214,7 +216,7 @@ public class EnemyStateMachine : MonoBehaviour
         stats.EnemyHP.text = "HP: " + enemy.currentHealth;//HP: 999
         stats.EnemyMP.text = "MP: " + enemy.currentMp;//MP: 999
 
-        
+        ProgressBar = stats.ProgressBar;
         EnemyStatsPanel.transform.SetParent(EnemyStatsPanelSpacer, false);
     }
     //Update stats of damage and or heal

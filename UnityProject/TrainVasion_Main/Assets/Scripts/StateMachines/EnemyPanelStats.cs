@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class EnemyPanelStats : MonoBehaviour
 {
+    public Image ProgressBar;
     public TextMeshProUGUI EnemyName;
     public TextMeshProUGUI EnemyHP;
     public TextMeshProUGUI EnemyMP;

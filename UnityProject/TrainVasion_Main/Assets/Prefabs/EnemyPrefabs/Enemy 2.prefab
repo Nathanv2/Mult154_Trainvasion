@@ -127,6 +127,10 @@ MonoBehaviour:
     attacks:
     - {fileID: 6308058222861786296, guid: cf81c0c46d5ddcb438c9995949b2ec3c, type: 3}
     - {fileID: 8132082297857653121, guid: 19c20c96be4b4e44fa2cd35d8a36aa6d, type: 3}
+    stamina: 1
+    intellect: 1
+    dexterity: 2
+    agility: 10
     EnemyType: 0
   currentState: 0
   Selector: {fileID: 4481821614125530122}

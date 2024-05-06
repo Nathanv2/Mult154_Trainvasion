@@ -128,7 +128,7 @@ MonoBehaviour:
     - {fileID: 2817528826121856934, guid: d646b996265f9bc4b9e9b7e86b65f4af, type: 3}
     stamina: 20
     intellect: 0
-    dexterity: 2
+    dexterity: 3
     agility: 20
     SpecialAttacks:
     - {fileID: -6549609148465764340, guid: ffbe1d55aad000b43b7d755ffd0fabc7, type: 3}

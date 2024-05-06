@@ -16,6 +16,11 @@ public class EnemyScript : BaseClass
         ELECTRIC
     }
 
+    public int stamina;
+    public int intellect;
+    public int dexterity;
+    public int agility;
+
     public Type EnemyType;
 
     

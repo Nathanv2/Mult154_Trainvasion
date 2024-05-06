@@ -61,6 +61,7 @@ public class BattleStateMachine : MonoBehaviour
     [Header("Spawn Points")]
     public List<Transform> enemySpawnPoints = new List<Transform>();
     public List<Transform> heroSpawnPoints = new List<Transform>();
+    public Transform mainHeroSpawnPoint;
 
     [Header("PrefabLists")]
     public List<GameObject> redZoneEnemies= new List<GameObject>();
@@ -89,9 +90,12 @@ public class BattleStateMachine : MonoBehaviour
             NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
             EnemiesInBattle.Add(NewEnemy);
         }
+
+        Instantiate(heroPrefab, mainHeroSpawnPoint.position, Quaternion.identity);
+
         for (int i = 0; i < GM.NumberOfHeroes; i++)
         {
-            GameObject NewHero = Instantiate(heroPrefab, heroSpawnPoints[i].position, Quaternion.identity) as GameObject;
+            GameObject NewHero = Instantiate(GM.ListOfHeroes[i], heroSpawnPoints[i].position, Quaternion.identity) as GameObject;
             NewHero.name = NewHero.GetComponent<HeroStateMachine>().hero.theName + "_" + (i + 1);
             NewHero.GetComponent<HeroStateMachine>().hero.theName = NewHero.name;
             //HerosInBattle.Add(NewHero);
