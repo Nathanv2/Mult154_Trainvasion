@@ -190,12 +190,13 @@ public class HeroStateMachine : MonoBehaviour
 
     public void TakeDamage(float getDamageAmount)
     {
-        hero.currentHealth -= getDamageAmount;
+        hero.currentHealth = hero.currentHealth - getDamageAmount + hero.currentDefense;
         if(hero.currentHealth <= 0)
         {
             hero.currentHealth = 0;
             currentState = TurnState.DEAD;
         }
+        hero.currentMp += 5;
         UpdateHeroPanel();
     }
     //do Damage
@@ -203,6 +204,7 @@ public class HeroStateMachine : MonoBehaviour
     {
         float calc_damage = hero.currentAttack + BSM.PerformList[0].choosenAttack.attackDamage;
         EnemyToAttack.GetComponent<EnemyStateMachine>().TakeDamage(calc_damage);
+        UpdateHeroPanel();
         audioSource.Play();
     }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,6 +34,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     //alive
     private bool alive = true;
+    public ParticleSystem takeDamageFX;
 
     //PanelStuff
     private EnemyPanelStats stats;
@@ -44,6 +46,7 @@ public class EnemyStateMachine : MonoBehaviour
 
     private void Start()
     {
+        takeDamageFX.Stop();
         //find spacer
         EnemyStatsPanelSpacer = GameObject.Find("BattleCanvas").transform.Find("EnemyStatsPanel").transform.Find("SpacerEnemyStatsPanel");
         //create panel and fill information of heroes
@@ -104,6 +107,8 @@ public class EnemyStateMachine : MonoBehaviour
                     }
                     //change color of dead enemy / play anims
                     this.gameObject.GetComponent<MeshRenderer>().material.color = new Color32(105, 105, 105, 255);
+                    this.gameObject.GetComponentInChildren<SkinnedMeshRenderer>().material.color = new Color32(105, 105, 105, 255);
+                    this.gameObject.GetComponentInChildren<Animator>().enabled= false;
                     //set alive to be false
                     alive = false;
                     //reset enemy buttons
@@ -203,7 +208,9 @@ public class EnemyStateMachine : MonoBehaviour
             enemy.currentHealth = 0f;
             currentState = TurnState.DEAD;
         }
+        takeDamageFX.Play();
         UpdateEnemyPanel();
+        
     }
 
     //Panel Work
