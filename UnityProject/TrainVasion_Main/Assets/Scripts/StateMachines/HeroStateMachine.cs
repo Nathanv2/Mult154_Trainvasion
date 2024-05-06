@@ -32,6 +32,7 @@ public class HeroStateMachine : MonoBehaviour
     private float animSpeed = 10f;
     //Dead stuff
     private bool alive = true;
+    public ParticleSystem takeDamageFX;
     //hero panel
     private HeroPanelStats stats;
     public GameObject HeroPanel;
@@ -41,6 +42,7 @@ public class HeroStateMachine : MonoBehaviour
 
     private void Start()
     {
+        takeDamageFX.Stop();
         //find spacer
         HeroPanelSpacer = GameObject.Find("BattleCanvas").transform.Find("HeroPanel").transform.Find("SpacerHeroPanel");
         //create panel and fill information of heroes
@@ -197,6 +199,7 @@ public class HeroStateMachine : MonoBehaviour
             currentState = TurnState.DEAD;
         }
         hero.currentMp += 5;
+        takeDamageFX.Play();
         UpdateHeroPanel();
     }
     //do Damage

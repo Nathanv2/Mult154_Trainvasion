@@ -33,8 +33,11 @@ public class GameManager : MonoBehaviour
     //ZoneColliderStuff
 
     public bool isOnRed;
+    public List<GameObject> RedStopEnemies = new List<GameObject>();
     public bool isOnYellow;
+    public List<GameObject> YellowStopEnemies = new List<GameObject>();
     public bool isOnBlue;
+    public List<GameObject> BlueStopEnemies = new List<GameObject>();
 
     //BloackadeStuff
     public bool blockadeAhead;

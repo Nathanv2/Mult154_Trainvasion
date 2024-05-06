@@ -117,15 +117,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy:
-    theName: Enemy 1
+    theName: Alien
     baseHealth: 100
     currentHealth: 100
     baseMp: 10
     currentMp: 10
-    baseAttack: 5
-    currentAttack: 5
-    baseDefense: 1
-    currentDefense: 1
+    baseAttack: 10
+    currentAttack: 10
+    baseDefense: 5
+    currentDefense: 5
     attacks:
     - {fileID: 6308058222861786296, guid: cf81c0c46d5ddcb438c9995949b2ec3c, type: 3}
     - {fileID: 8132082297857653121, guid: 19c20c96be4b4e44fa2cd35d8a36aa6d, type: 3}
@@ -302,7 +302,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5133172930245658739}
   serializedVersion: 8
-  lengthInSec: 5
+  lengthInSec: 3.62
   simulationSpeed: 10
   stopAction: 0
   cullingMode: 0
@@ -377,13 +377,13 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.63
       minScalar: 5
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
+          time: 0.64102554
           value: 1
           inSlope: 0
           outSlope: 0
@@ -392,8 +392,17 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
+          time: 0.7849129
+          value: 0.74075204
+          inSlope: -1.4983935
+          outSlope: -1.4983935
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.33333334
+        - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -430,7 +439,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.49
+      scalar: 64.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -445,8 +454,17 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 1
-          value: 1
+          time: 0.5803831
+          value: 0.11407627
+          inSlope: -3.31249
+          outSlope: -3.31249
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.4147771
+          outWeight: 0.33333334
+        - serializedVersion: 3
+          time: 0.99679565
+          value: -1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -484,7 +502,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 0.9245283, g: 0.898428, b: 0.65850836, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -546,13 +564,13 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3.98
+      scalar: 2.26
       minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0
+          time: 0.72115326
           value: 1
           inSlope: 0
           outSlope: 0
@@ -562,7 +580,7 @@ ParticleSystem:
           outWeight: 0.33333334
         - serializedVersion: 3
           time: 1
-          value: 1
+          value: 0
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -4247,7 +4265,7 @@ ParticleSystem:
         m_RotationOrder: 4
     maxLights: 20
   TrailModule:
-    enabled: 0
+    enabled: 1
     mode: 0
     ratio: 1
     lifetime:
@@ -4307,7 +4325,7 @@ ParticleSystem:
     textureMode: 0
     ribbonCount: 1
     shadowBias: 0.5
-    worldSpace: 0
+    worldSpace: 1
     dieWithParticles: 1
     sizeAffectsWidth: 1
     sizeAffectsLifetime: 0
@@ -5081,7 +5099,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10308, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: c9f527bcb4604154db2b3c7b06648701, type: 2}
+  - {fileID: 2100000, guid: c9f527bcb4604154db2b3c7b06648701, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5102,7 +5121,7 @@ ParticleSystemRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_RenderMode: 0
+  m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5123,7 +5142,7 @@ ParticleSystemRenderer:
   m_FreeformStretching: 0
   m_RotateWithStretchDirection: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}

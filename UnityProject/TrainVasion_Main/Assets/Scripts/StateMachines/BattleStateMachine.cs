@@ -82,15 +82,6 @@ public class BattleStateMachine : MonoBehaviour
     public void Awake()
     {
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
-
-        for (int i = 0; i < GM.enemiesToSpawn; i++)
-        {
-            GameObject NewEnemy = Instantiate(enemyPrefab, enemySpawnPoints[i].position, Quaternion.identity) as GameObject;
-            NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_" + (i + 1);
-            NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
-            EnemiesInBattle.Add(NewEnemy);
-        }
-
         Instantiate(heroPrefab, mainHeroSpawnPoint.position, Quaternion.identity);
 
         for (int i = 0; i < GM.NumberOfHeroes; i++)
@@ -100,6 +91,39 @@ public class BattleStateMachine : MonoBehaviour
             NewHero.GetComponent<HeroStateMachine>().hero.theName = NewHero.name;
             //HerosInBattle.Add(NewHero);
         }
+
+        if (GM.isOnRed)
+        {
+            for (int i = 0; i < GM.enemiesToSpawn; i++)
+            {
+                GameObject NewEnemy = Instantiate(GM.RedStopEnemies[0].gameObject, enemySpawnPoints[i].position, Quaternion.identity) as GameObject;
+                NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_" + (i + 1);
+                NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
+                EnemiesInBattle.Add(NewEnemy);
+            }
+        }
+        else if (GM.isOnYellow)
+        {
+            for (int i = 0; i < GM.enemiesToSpawn; i++)
+            {
+                GameObject NewEnemy = Instantiate(GM.YellowStopEnemies[Random.Range(0,2)].gameObject, enemySpawnPoints[i].position, Quaternion.identity) as GameObject;
+                NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_" + (i + 1);
+                NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
+                EnemiesInBattle.Add(NewEnemy);
+            }
+        }
+        else if (GM.isOnBlue)
+        {
+            for (int i = 0; i < GM.enemiesToSpawn; i++)
+            {
+                GameObject NewEnemy = Instantiate(GM.BlueStopEnemies[Random.Range(0, 3)].gameObject, enemySpawnPoints[i].position, Quaternion.identity) as GameObject;
+                NewEnemy.name = NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName + "_" + (i + 1);
+                NewEnemy.GetComponent<EnemyStateMachine>().enemy.theName = NewEnemy.name;
+                EnemiesInBattle.Add(NewEnemy);
+            }
+        }
+
+
     }
 
     private void Start()
