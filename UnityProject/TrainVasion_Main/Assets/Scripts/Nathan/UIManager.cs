@@ -51,6 +51,14 @@ public class UIManager : MonoBehaviour
         peopleText.text = "People: " + GM.numPeople;
         PlayMainMusic();
         EnableBlockadeMenu();
+        if(GM.isOnMainGame == true)
+        {
+            asiaCanvas.SetActive(true);
+        }
+        else if(GM.isOnMainGame == false)
+        {
+            asiaCanvas.SetActive(false);
+        }
     }
 
     public void TriggerSaveButtons()
@@ -97,6 +105,7 @@ public class UIManager : MonoBehaviour
         peopleText.gameObject.SetActive(true);
         playerController.canMove = true;
         canClick = true;
+      
 
         GM.DisableObjects();
 
