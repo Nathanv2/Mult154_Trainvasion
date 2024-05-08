@@ -31,7 +31,6 @@ public class PlayerController : MonoBehaviour
     //Angel's code variables
 
     public AudioSource audioSource;
-    public AudioSource audioSource2;
 
     void Start()
     {
@@ -180,13 +179,12 @@ public class PlayerController : MonoBehaviour
     {
         if (Blockade.gameObject.CompareTag("Blockade 1") || Blockade.gameObject.CompareTag("Blockade 2") || Blockade.gameObject.CompareTag("Blockade 3"))
         {
-            if (GM.numPeople >= 20 || GM.numPeople >= 45)
+            if (GM.numPeople >= 2 || GM.numPeople >= 40)
             {
                 stopObject.tag = "Blockade Removed";
                 Blockade.gameObject.tag = "Blockade Removed";
                 Blockade.gameObject.SetActive(false);
                 Debug.Log("Removed Blockade");
-                audioSource2.Play();
             }
             else
             {
