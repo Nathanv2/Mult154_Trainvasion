@@ -31,6 +31,7 @@ public class PlayerController : MonoBehaviour
     //Angel's code variables
 
     public AudioSource audioSource;
+    public AudioSource audioSource2;
 
     void Start()
     {
@@ -185,7 +186,7 @@ public class PlayerController : MonoBehaviour
                 Blockade.gameObject.tag = "Blockade Removed";
                 Blockade.gameObject.SetActive(false);
                 Debug.Log("Removed Blockade");
-                audioSource.Play();
+                audioSource2.Play();
             }
             else
             {
