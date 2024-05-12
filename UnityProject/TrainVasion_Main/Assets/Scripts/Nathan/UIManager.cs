@@ -59,6 +59,8 @@ public class UIManager : MonoBehaviour
         {
             asiaCanvas.SetActive(false);
         }
+        
+        GameOverUI();
     }
 
     public void TriggerSaveButtons()
@@ -167,11 +169,10 @@ public class UIManager : MonoBehaviour
             goodEndingText.gameObject.SetActive(true);
         }
     }
-    public void GameOver()
+    public void GameOverUI()
     {
         if (energyBar.slider.value <= 0)
         {
-            Time.timeScale = 0;
             gameOverText.gameObject.SetActive(true);
             SkipButton();
             Debug.Log("GAME OVER");
@@ -189,6 +190,7 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Trainvasion");
     }
 

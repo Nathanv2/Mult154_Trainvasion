@@ -78,7 +78,6 @@ public class GameManager : MonoBehaviour
         isOnMainGame= true;
         numPeople = 0;
         //FindStuff();
-        
     }
 
     private void Update()
@@ -92,7 +91,7 @@ public class GameManager : MonoBehaviour
         {
             uiManager = FindObjectOfType<UIManager>();
         }
-        else if(energyBar == null)
+        else if (energyBar == null)
         {
             energyBar = FindObjectOfType<EnergyBar>();
         }
@@ -162,8 +161,6 @@ public class GameManager : MonoBehaviour
         if (energyBar.slider.value <= 0)
         {
             Time.timeScale = 0;
-            uiManager.gameOverText.gameObject.SetActive(true);
-            uiManager.SkipButton();
             Debug.Log("GAME OVER");
         }
     }
