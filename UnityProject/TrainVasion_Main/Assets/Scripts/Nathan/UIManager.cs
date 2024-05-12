@@ -190,7 +190,6 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
-        Time.timeScale = 1;
         SceneManager.LoadScene("Trainvasion");
     }
 

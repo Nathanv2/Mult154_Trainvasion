@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public List<GameObject> ListOfHeroes = new List<GameObject>();
 
     public bool isOnMainGame;
+    public bool gameOver;
 
     //ZoneColliderStuff
 
@@ -77,6 +78,7 @@ public class GameManager : MonoBehaviour
         blockadeAhead= false;
         isOnMainGame= true;
         numPeople = 0;
+        gameOver = false;
         //FindStuff();
     }
 
@@ -160,8 +162,13 @@ public class GameManager : MonoBehaviour
     {
         if (energyBar.slider.value <= 0)
         {
+            gameOver = true;
             Time.timeScale = 0;
-            Debug.Log("GAME OVER");
+        }
+        else if(energyBar.slider.value > 0)
+        {
+            gameOver = false;
+            Time.timeScale = 1;
         }
     }
 
