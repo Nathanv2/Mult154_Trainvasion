@@ -14,6 +14,8 @@ public class AsyncLoader : MonoBehaviour
     [Header("Slider")]
     [SerializeField] private Slider loadingSlider;
 
+    public GameObject MainCamera;
+
     private bool LoadedScreen = false;
 
     public void LoadLevelBtn(string levelToLoad)
@@ -25,9 +27,13 @@ public class AsyncLoader : MonoBehaviour
 
     public void Update()
     {
-        if(loadingSlider.value == 2)
+        if (loadingSlider.value == 2)
         {
-            SceneManager.LoadScene("Trainvasion");
+            SceneManager.LoadScene("Trainvasion", LoadSceneMode.Additive);
+            loadingSlider.enabled = false; loadingScreen.SetActive(false);
+            LoadedScreen = false;
+            loadingSlider.value = 1;
+            MainCamera.gameObject.SetActive(false);
         }
     }
 

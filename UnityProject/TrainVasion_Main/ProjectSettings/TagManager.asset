@@ -38,6 +38,10 @@ TagManager:
   - BlockadeTrigger
   - Alien
   - EnergyBar
+  - SFX
+  - Master Slider
+  - Music Slider
+  - SFX Slider
   layers:
   - Default
   - TransparentFX

@@ -41,7 +41,6 @@ public class UIManager : MonoBehaviour
         GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
         energyBar = GameObject.Find("EnergyBarCanvas").GetComponent<EnergyBar>();
         GM.isOnMainGame = true;
-
     }
 
 
