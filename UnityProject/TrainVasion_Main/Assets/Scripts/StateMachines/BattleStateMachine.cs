@@ -374,6 +374,18 @@ public class BattleStateMachine : MonoBehaviour
         SpecialsPanel.SetActive(false);
         EnemySelectPanel.SetActive(true);
         HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentMp -= chooseSpecial.attackCost;
+
+        //Healing Mech
+        if (HeroesToManage[0].GetComponent<HeroStateMachine>().hero.hasHealingCapabilities == true)
+        {
+            HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth += chooseSpecial.healAmount;
+            HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentMp -= chooseSpecial.healCost;
+
+            if (HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth >= HeroesToManage[0].GetComponent<HeroStateMachine>().hero.baseHealth)
+            {
+                HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth = HeroesToManage[0].GetComponent<HeroStateMachine>().hero.baseHealth;
+            }
+        }
     }
 
     public void Input3()//switching to speacials
