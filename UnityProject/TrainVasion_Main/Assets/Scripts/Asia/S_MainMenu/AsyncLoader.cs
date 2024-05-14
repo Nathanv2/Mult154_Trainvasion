@@ -15,6 +15,7 @@ public class AsyncLoader : MonoBehaviour
     [SerializeField] private Slider loadingSlider;
 
     public GameObject MainCamera;
+    public AudioManager audioManager;
 
     private bool LoadedScreen = false;
 
@@ -34,6 +35,7 @@ public class AsyncLoader : MonoBehaviour
             LoadedScreen = false;
             loadingSlider.value = 1;
             MainCamera.gameObject.SetActive(false);
+            audioManager.backgroundAudio.Stop();
         }
     }
 

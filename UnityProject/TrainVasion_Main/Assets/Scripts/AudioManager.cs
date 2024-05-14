@@ -1,24 +1,33 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    [Header("---------- Audio Source ----------")]
-    [SerializeField] AudioSource musicSource;
-    [SerializeField] AudioSource SFXSource;
+    public static AudioManager instance;
 
-    [Header("---------- Audio Clip ----------")]
-    public AudioClip invasion;
-    public AudioClip streetcar;
-    public AudioClip destruction;
+    public AudioSource buttonAudio;
+    public AudioSource backgroundAudio;
 
-    private void Start()
+    private void Awake()
     {
-        musicSource.clip = invasion;
-        musicSource.Play();
+        //checks if intance exists
+        if (instance == null)
+        {
+            instance = this;
+        }
+        //if an intance of the gameManager already exists on a scene destroy it
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+        //wont be destroyed between changing scenes
+        DontDestroyOnLoad(gameObject);
+
     }
 
-    public void PlaySFX(AudioClip clip)
+    public void PlayButtonAudio()
     {
-        SFXSource.PlayOneShot(clip);
+        buttonAudio.Stop();
     }
+
 }

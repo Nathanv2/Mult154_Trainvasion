@@ -39,9 +39,6 @@ public class VolumeControl : MonoBehaviour
     void Start()
     {
         gameManager = gameManager = FindObjectOfType<GameManager>();
-        masterVolume = GameObject.FindWithTag("Master Slider").GetComponent<Slider>();
-        musicVolume = GameObject.FindWithTag("Music Slider").GetComponent<Slider>();
-        sfxVolume = GameObject.FindWithTag("SFX Slider").GetComponent<Slider>();
         UpdateVolumes();
 
         masterVolume.onValueChanged.AddListener(delegate { OnVolumeChanged(); });
@@ -89,19 +86,19 @@ public class VolumeControl : MonoBehaviour
     }
     void UpdateVolumes()
     {
-        for (int i = 0; i < masterSource.Length; i++)
-        {
-            masterSource[i].volume = masterVolume.value;
-        }
+
+        float masterValue = masterVolume.value;
+
 
         for (int i = 0; i < musicSource.Length; i++)
         {
-            musicSource[i].volume = musicVolume.value;
+            musicSource[i].volume = masterValue;
         }
+
 
         for (int i = 0; i < sfxSource.Length; i++)
         {
-            sfxSource[i].volume = sfxVolume.value;
+            sfxSource[i].volume = masterValue;
         }
     }
 
@@ -112,6 +109,11 @@ public class VolumeControl : MonoBehaviour
 
     void OnVolumeChanged2()
     {
+        for (int i = 0; i < masterSource.Length; i++)
+        {
+            masterSource[i].volume = masterVolume.value;
+        }
+
         for (int i = 0; i < musicSource.Length; i++)
         {
             musicSource[i].volume = musicVolume.value;

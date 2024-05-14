@@ -12,11 +12,16 @@ public class EnemyCollision : MonoBehaviour
         AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
+    public void Update()
+    {
+        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            AudioManager.PlaySFX(AudioManager.streetcar);
+            //AudioManager.PlaySFX(AudioManager.streetcar);
         }
     }
 }

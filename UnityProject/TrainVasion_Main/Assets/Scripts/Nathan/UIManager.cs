@@ -29,7 +29,7 @@ public class UIManager : MonoBehaviour
 
     public GameManager GM;
     public GameObject asiaCanvas;
-    public GameObject audioManager;
+    //public GameObject audioManager;
 
     public GameObject blockadeMenu;
     public GameObject blockadeFail;
@@ -42,13 +42,10 @@ public class UIManager : MonoBehaviour
         energyBar = GameObject.Find("EnergyBarCanvas").GetComponent<EnergyBar>();
         GM.isOnMainGame = true;
     }
-
-
-
     private void Update()
     {
         peopleText.text = "People: " + GM.numPeople;
-        PlayMainMusic();
+        //PlayMainMusic();
         EnableBlockadeMenu();
         if(GM.isOnMainGame == true)
         {
@@ -58,7 +55,7 @@ public class UIManager : MonoBehaviour
         {
             asiaCanvas.SetActive(false);
         }
-        
+
         GameOverUI();
     }
 
@@ -192,7 +189,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("Trainvasion");
     }
 
-    public void PlayMainMusic()
+    /*public void PlayMainMusic()
     {
         if(GM.isOnMainGame)
         {
@@ -202,7 +199,7 @@ public class UIManager : MonoBehaviour
         {
             audioManager.SetActive(false);
         }
-    }
+    }*/
     public void EnableBlockadeMenu()
     {
         if(GM.blockadeAhead == true)
