@@ -11,5 +11,8 @@ public class BaseAttack : MonoBehaviour
     public float attackDamage;//Base damage + the stats of said character
     public float attackCost;//special attacks can use energy to unleash powerful attacks
 
-    
+    public string healName;
+    public string healDescription;
+    public float healAmount;
+    public float healCost;
 }

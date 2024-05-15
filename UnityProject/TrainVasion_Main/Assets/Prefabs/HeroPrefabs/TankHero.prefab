@@ -119,20 +119,22 @@ MonoBehaviour:
     theName: BodyBuilder
     baseHealth: 150
     currentHealth: 150
-    baseMp: 10
-    currentMp: 10
+    baseMp: 50
+    currentMp: 50
     baseAttack: 5
     currentAttack: 5
     baseDefense: 7
     currentDefense: 7
     attacks:
     - {fileID: 6742650788174425529, guid: f9f14de89eb9f7447888ffba9f7aa935, type: 3}
+    hasHealingCapabilities: 0
     stamina: 10
     intellect: 1
     dexterity: 1
     agility: 1
     SpecialAttacks:
     - {fileID: -5303342059484916854, guid: a0cad0d2539ae3941923b37bb795a5d6, type: 3}
+    - {fileID: -8994698366039977900, guid: 7fc657903a550e14fad67a0a4f2b333b, type: 3}
   currentState: 0
   Selector: {fileID: 1055079633051516241}
   EnemyToAttack: {fileID: 0}

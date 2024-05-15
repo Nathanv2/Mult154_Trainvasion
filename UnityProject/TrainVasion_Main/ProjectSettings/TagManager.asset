@@ -42,6 +42,7 @@ TagManager:
   - Master Slider
   - Music Slider
   - SFX Slider
+  - Music
   layers:
   - Default
   - TransparentFX

@@ -14,17 +14,13 @@ public class AsyncLoader : MonoBehaviour
     [Header("Slider")]
     [SerializeField] private Slider loadingSlider;
 
+    public GameObject mainMenuCanvas;
+    public Canvas mainmenucanvasComponent;
+
     public GameObject MainCamera;
     public AudioManager audioManager;
 
     private bool LoadedScreen = false;
-
-    public void LoadLevelBtn(string levelToLoad)
-    {
-        mainMenu.SetActive(false);
-        loadingScreen.SetActive(true);
-        LoadedScreen = true;
-    }
 
     public void Update()
     {
@@ -33,9 +29,16 @@ public class AsyncLoader : MonoBehaviour
             SceneManager.LoadScene("Trainvasion", LoadSceneMode.Additive);
             loadingSlider.enabled = false; loadingScreen.SetActive(false);
             LoadedScreen = false;
-            loadingSlider.value = 1;
+            loadingSlider.value = 0;
             MainCamera.gameObject.SetActive(false);
             audioManager.backgroundAudio.Stop();
+        }
+
+        mainMenuCanvas = GameObject.Find("MainMenu");
+
+        if (mainmenucanvasComponent == null)
+        {
+            mainmenucanvasComponent = mainMenuCanvas.GetComponent<Canvas>();
         }
     }
 
@@ -46,5 +49,17 @@ public class AsyncLoader : MonoBehaviour
             loadingSlider.value = loadingSlider.value + 0.01f;
             Debug.Log(loadingSlider.value);
         }
+    }
+
+    public void EnableMainMenuCanvas()
+    {
+        mainmenucanvasComponent.enabled = true;
+    }
+
+    public void DisableMainMenuCanvas()
+    {
+        mainmenucanvasComponent.enabled = false;
+        loadingScreen.SetActive(true);
+        LoadedScreen = true;
     }
 }

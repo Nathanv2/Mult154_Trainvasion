@@ -5009,20 +5009,22 @@ MonoBehaviour:
     theName: Nimble Guy
     baseHealth: 80
     currentHealth: 80
-    baseMp: 10
-    currentMp: 10
+    baseMp: 50
+    currentMp: 50
     baseAttack: 10
     currentAttack: 10
     baseDefense: 0
     currentDefense: 0
     attacks:
     - {fileID: 2817528826121856934, guid: d646b996265f9bc4b9e9b7e86b65f4af, type: 3}
+    hasHealingCapabilities: 0
     stamina: 20
     intellect: 0
     dexterity: 3
     agility: 20
     SpecialAttacks:
     - {fileID: -6549609148465764340, guid: ffbe1d55aad000b43b7d755ffd0fabc7, type: 3}
+    - {fileID: 7487587532300712958, guid: 418e28f1b3ac6c64a889d0a42b250089, type: 3}
   currentState: 0
   Selector: {fileID: 5256889845713970418}
   EnemyToAttack: {fileID: 0}

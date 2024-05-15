@@ -186,7 +186,8 @@ public class UIManager : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("Trainvasion");
+        SceneManager.UnloadSceneAsync("Trainvasion");
+        SceneManager.LoadScene("Trainvasion", LoadSceneMode.Additive);
     }
 
     /*public void PlayMainMusic()

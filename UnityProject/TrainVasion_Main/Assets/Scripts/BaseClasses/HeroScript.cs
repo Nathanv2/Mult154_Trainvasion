@@ -5,6 +5,9 @@ using UnityEngine;
 [System.Serializable]
 public class HeroScript : BaseClass
 {
+    //Healing??
+    public bool hasHealingCapabilities = false;
+
     //Stats
     public int stamina;
     public int intellect;

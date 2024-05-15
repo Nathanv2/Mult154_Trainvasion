@@ -7,33 +7,32 @@ public class CanvasController : MonoBehaviour
 {
     public GameObject settingsCanvas;
     public GameObject optionCanvas;
-    public Canvas settingscanvasComponent;
     public Canvas optioncanvasComponent;
+    public MainMenuCanvasController settingscanvasComponent;
 
     private void Update()
     {
-        settingsCanvas = GameObject.Find("OptionMenuCanvas(Asia)");
         optionCanvas = GameObject.Find("Options/restart(Asia)");
-
-        if (settingscanvasComponent == null)
-        {
-            settingscanvasComponent = settingsCanvas.GetComponent<Canvas>();
-        }
 
         if (optioncanvasComponent == null)
         {
             optioncanvasComponent = optionCanvas.GetComponent<Canvas>();
         }
+
+        if (settingscanvasComponent == null)
+        {
+            settingscanvasComponent = FindObjectOfType<MainMenuCanvasController>();
+        }
     }
 
     public void EnableSettingsCanvas()
     {
-        settingscanvasComponent.enabled = true;
+        settingscanvasComponent.EnableSettingsCanvas();
     }
 
     public void DisableSettingsCanvas()
     {
-        settingscanvasComponent.enabled = false;
+        settingscanvasComponent.DisableSettingsCanvas();
     }
 
     public void EnableOptionCanvas()
