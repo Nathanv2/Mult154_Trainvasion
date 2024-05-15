@@ -134,9 +134,8 @@ MonoBehaviour:
     dexterity: 2
     agility: 10
     SpecialAttacks:
-    - {fileID: -6549609148465764340, guid: ffbe1d55aad000b43b7d755ffd0fabc7, type: 3}
-    - {fileID: 6128684166683822297, guid: a81e7abbeb64e794697c43c92c0dc102, type: 3}
     - {fileID: -7677511371381588114, guid: 0e25c8076f9234743b19a17ab686e305, type: 3}
+    - {fileID: 6128684166683822297, guid: a81e7abbeb64e794697c43c92c0dc102, type: 3}
   currentState: 0
   Selector: {fileID: 3287772916866728225}
   EnemyToAttack: {fileID: 0}

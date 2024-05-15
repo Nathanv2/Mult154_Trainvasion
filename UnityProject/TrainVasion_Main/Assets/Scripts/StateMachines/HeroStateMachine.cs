@@ -160,6 +160,7 @@ public class HeroStateMachine : MonoBehaviour
         Vector3 firstPosition = startPosition;
         while (MoveTowardsStart(firstPosition))
         {
+            StartCoroutine(ResetStats());
             yield return null;
         }
 
@@ -229,5 +230,15 @@ public class HeroStateMachine : MonoBehaviour
     {
         stats.HeroHP.text = "HP: " + hero.currentHealth;
         stats.HeroMP.text = "MP: " + hero.currentMp;
+    }
+    public IEnumerator ResetStats()
+    {
+        //yield return new WaitForSeconds(0.2f);
+
+        hero.currentAttack = hero.baseAttack;
+        hero.currentDefense= hero.baseDefense;
+       
+
+        yield return null;
     }
 }

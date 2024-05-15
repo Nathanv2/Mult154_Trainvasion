@@ -380,12 +380,17 @@ public class BattleStateMachine : MonoBehaviour
         {
             HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth += chooseSpecial.healAmount;
             HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentMp -= chooseSpecial.healCost;
-
+            if (chooseSpecial.name == "First Aid")
+            {
+                HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentAttack = 0;
+                
+            }
             if (HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth >= HeroesToManage[0].GetComponent<HeroStateMachine>().hero.baseHealth)
             {
                 HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth = HeroesToManage[0].GetComponent<HeroStateMachine>().hero.baseHealth;
             }
         }
+        
     }
 
     public void Input3()//switching to speacials
@@ -413,5 +418,7 @@ public class BattleStateMachine : MonoBehaviour
         GM.isOnMainGame = true;
         GM.EnableObjects();
     }
+
+   
 
 }

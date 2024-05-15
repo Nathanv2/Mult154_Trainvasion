@@ -195,7 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e5f8108dd4f4be4e9091fb151c71443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  specialAttackToPerform: {fileID: -5303342059484916854, guid: a0cad0d2539ae3941923b37bb795a5d6, type: 3}
+  specialAttackToPerform: {fileID: -7677511371381588114, guid: 0e25c8076f9234743b19a17ab686e305, type: 3}
 --- !u!1 &8122538022020609872
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Heavy Slam
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
+  m_fontSize: 24
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

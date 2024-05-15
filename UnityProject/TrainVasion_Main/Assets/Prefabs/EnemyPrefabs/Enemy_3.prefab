@@ -122,8 +122,8 @@ MonoBehaviour:
     currentHealth: 150
     baseMp: 10
     currentMp: 10
-    baseAttack: 1
-    currentAttack: 1
+    baseAttack: 20
+    currentAttack: 20
     baseDefense: 10
     currentDefense: 10
     attacks:

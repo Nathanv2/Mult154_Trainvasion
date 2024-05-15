@@ -134,6 +134,7 @@ MonoBehaviour:
     agility: 1
     SpecialAttacks:
     - {fileID: -5303342059484916854, guid: a0cad0d2539ae3941923b37bb795a5d6, type: 3}
+    - {fileID: -8994698366039977900, guid: 7fc657903a550e14fad67a0a4f2b333b, type: 3}
   currentState: 0
   Selector: {fileID: 1055079633051516241}
   EnemyToAttack: {fileID: 0}
