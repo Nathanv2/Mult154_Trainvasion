@@ -288,8 +288,8 @@ GameObject:
   - component: {fileID: 172462701}
   - component: {fileID: 172462702}
   m_Layer: 0
-  m_Name: Bullet
-  m_TagString: Untagged
+  m_Name: AlienCollision
+  m_TagString: SFX
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 75adfe9a619833445a701305b983e548, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -510,8 +510,8 @@ GameObject:
   - component: {fileID: 551767007}
   - component: {fileID: 551767008}
   m_Layer: 0
-  m_Name: Alien
-  m_TagString: Untagged
+  m_Name: ExplorationBackground
+  m_TagString: Music
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -545,7 +545,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

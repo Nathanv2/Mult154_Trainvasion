@@ -6,7 +6,13 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
 
     public AudioSource buttonAudio;
-    public AudioSource backgroundAudio;
+    public AudioSource mainMenuAudio;
+    public AudioSource trainvasionAudioComponent;
+    public AudioSource explorationAudioComponent;
+    public AudioSource aliencolliderAudioComponent;
+    public GameObject trainvasionAudio;
+    public GameObject explorationAudio;
+    public GameObject aliencolliderAudio;
 
     private void Awake()
     {
@@ -25,9 +31,30 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    public void PlayButtonAudio()
+    public void Update()
     {
-        buttonAudio.Stop();
+        trainvasionAudio = GameObject.Find("MainBackground");
+        explorationAudio = GameObject.Find("ExplorationBackground");
+        aliencolliderAudio = GameObject.Find("AlienCollision");
+        if (trainvasionAudioComponent == null)
+        {
+            trainvasionAudioComponent = trainvasionAudio.GetComponent<AudioSource>();
+        }
+
+        if (explorationAudioComponent == null)
+        {
+            explorationAudioComponent = explorationAudio.GetComponent<AudioSource>();
+        }
+
+        if (aliencolliderAudioComponent == null)
+        {
+            aliencolliderAudioComponent = aliencolliderAudio.GetComponent<AudioSource>();
+        }
+    }
+
+    public void MainMenuAudio()
+    {
+        mainMenuAudio.Stop();
     }
 
 }

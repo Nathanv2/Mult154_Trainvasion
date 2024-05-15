@@ -5,17 +5,22 @@ using UnityEngine.SceneManagement;
 
 public class AlienCollision : MonoBehaviour
 {
-    AudioManager AudioManager;
+    AudioManager audioManager;
 
-    private void Awake()
+    public void Update()
     {
-        AudioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        if (audioManager == null)
+        {
+            audioManager = FindAnyObjectByType<AudioManager>();
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Alien"){
+        if (collision.gameObject.tag == "Alien")
+        {
             //AudioManager.PlaySFX(AudioManager.destruction);
+            audioManager.aliencolliderAudioComponent.Play();
             SceneManager.LoadScene("Combat", LoadSceneMode.Additive);
             SceneManager.UnloadSceneAsync("Exploration");
         }

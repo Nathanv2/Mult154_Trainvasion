@@ -31,7 +31,7 @@ public class AsyncLoader : MonoBehaviour
             LoadedScreen = false;
             loadingSlider.value = 0;
             MainCamera.gameObject.SetActive(false);
-            audioManager.backgroundAudio.Stop();
+            audioManager.mainMenuAudio.Stop();
         }
 
         mainMenuCanvas = GameObject.Find("MainMenu");

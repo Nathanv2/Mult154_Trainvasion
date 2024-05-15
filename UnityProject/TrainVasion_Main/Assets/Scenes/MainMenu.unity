@@ -7453,7 +7453,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buttonAudio: {fileID: 1467127297}
-  backgroundAudio: {fileID: 1256428617}
+  mainMenuAudio: {fileID: 1256428617}
+  trainvasionAudioComponent: {fileID: 0}
+  trainvasionAudio: {fileID: 0}
 --- !u!4 &1457187876
 Transform:
   m_ObjectHideFlags: 0
@@ -10257,6 +10259,8 @@ MonoBehaviour:
   sfxVolume: {fileID: 814445596}
   masterSource: []
   musicSource:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   sfxSource:

@@ -233,6 +233,14 @@ public class VolumeControl : MonoBehaviour
                 sfxSource[i].volume = sfxVolume.value;
             }
         }
+
+        for (int i = 0; i < musicSource.Length; i++)
+        {
+            if (musicSource[i] != null)
+            {
+                musicSource[i].volume = musicVolume.value;
+            }
+        }
     }
     void UpdateVolumes()
     {

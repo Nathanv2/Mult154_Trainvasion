@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public PlayerController playerController;
+    public AudioManager audioManager;
     //public GameManager gameManager;
     public Raycasting rayCast;
     public Rotate rotatePlayer;
@@ -54,6 +55,11 @@ public class UIManager : MonoBehaviour
         else if(GM.isOnMainGame == false)
         {
             asiaCanvas.SetActive(false);
+        }
+
+        if(audioManager == null)
+        {
+            audioManager = FindAnyObjectByType<AudioManager>();
         }
 
         GameOverUI();
@@ -103,6 +109,8 @@ public class UIManager : MonoBehaviour
         peopleText.gameObject.SetActive(true);
         playerController.canMove = true;
         canClick = true;
+        audioManager.trainvasionAudioComponent.Stop();
+        
       
 
         GM.DisableObjects();
