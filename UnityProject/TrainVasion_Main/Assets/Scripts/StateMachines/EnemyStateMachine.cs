@@ -42,7 +42,8 @@ public class EnemyStateMachine : MonoBehaviour
     private Transform EnemyStatsPanelSpacer;
     private Image ProgressBar;
 
-    public AudioSource audioSource;
+    public GameObject attackAudio;
+    public AudioSource attackAudioComponent;
 
     private void Start()
     {
@@ -118,6 +119,13 @@ public class EnemyStateMachine : MonoBehaviour
 
                 }
                 break;
+        }
+
+        attackAudio = GameObject.Find("Attack");
+
+        if (attackAudioComponent == null)
+        {
+            attackAudioComponent = attackAudio.GetComponent<AudioSource>();
         }
     }
 
@@ -197,7 +205,7 @@ public class EnemyStateMachine : MonoBehaviour
     {
         float calc_damage = enemy.currentAttack + BSM.PerformList[0].choosenAttack.attackDamage;
         HeroToAttack.GetComponent<HeroStateMachine> ().TakeDamage(calc_damage);
-        audioSource.Play(); 
+        attackAudioComponent.Play(); 
     }
 
     public void TakeDamage(float getDamageAmount)
