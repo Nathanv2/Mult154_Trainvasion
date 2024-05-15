@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChange : MonoBehaviour
 {
+
+    public AsyncLoader mainmenuCanvas;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,11 +16,16 @@ public class SceneChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (mainmenuCanvas == null)
+        {
+            mainmenuCanvas = FindObjectOfType<AsyncLoader>();
+        }
+          
     }
 
     public void ChangeScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.UnloadSceneAsync("Trainvasion");
+        mainmenuCanvas.EnableMainMenuCanvas();
     }
 }
