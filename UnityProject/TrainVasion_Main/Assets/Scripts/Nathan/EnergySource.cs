@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnergySource : MonoBehaviour
 {
-    public EnergyBar energyBar;
-    public int energy = 5;
+    public GameObject energybarCanvas;
+    public Slider energybarSlider;
 
 
     private void Update()
     {
-        if (energyBar == null)
+        energybarCanvas = GameObject.Find("EnergyBarCanvas");
+        if (energybarSlider == null)
         {
-            energyBar = FindObjectOfType<EnergyBar>();
+            energybarSlider = energybarCanvas.GetComponent<Slider>();
         }     
     }
 
@@ -20,7 +22,7 @@ public class EnergySource : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Player"))
         {
-            energyBar.slider.value += 10;
+            energybarSlider.value += 10;
             Destroy(gameObject);
             Debug.Log("Added 10 energy!");
         }

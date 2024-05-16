@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public PlayerController playerController;
+    public CanvasController canvasController;
     public AudioManager audioManager;
     //public GameManager gameManager;
     public Raycasting rayCast;
@@ -62,6 +63,21 @@ public class UIManager : MonoBehaviour
             audioManager = FindAnyObjectByType<AudioManager>();
         }
 
+        if (canvasController == null)
+        {
+            canvasController = FindAnyObjectByType<CanvasController>();
+        }
+
+        if (GM.isOnMainGame == false)
+        {
+            canvasController.asiaCanvas.SetActive(true);
+        }
+
+        if (GM.isOnMainGame == true)
+        {
+            canvasController.asiacanvasComponent.enabled = true;
+        }
+
         GameOverUI();
     }
 
@@ -110,6 +126,7 @@ public class UIManager : MonoBehaviour
         playerController.canMove = true;
         canClick = true;
         audioManager.trainvasionAudioComponent.Stop();
+        canvasController.asiacanvasComponent.enabled = false;
         
       
 
