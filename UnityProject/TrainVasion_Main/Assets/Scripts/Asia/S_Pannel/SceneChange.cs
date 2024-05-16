@@ -7,6 +7,7 @@ public class SceneChange : MonoBehaviour
 {
 
     public AsyncLoader mainmenuCanvas;
+    public AudioManager audioManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,8 @@ public class SceneChange : MonoBehaviour
         {
             mainmenuCanvas = FindObjectOfType<AsyncLoader>();
         }
+
+        audioManager = FindAnyObjectByType<AudioManager>();
           
     }
 
@@ -27,5 +30,7 @@ public class SceneChange : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("Trainvasion");
         mainmenuCanvas.EnableMainMenuCanvas();
+        mainmenuCanvas.MainCamera.SetActive(true);
+        audioManager.mainMenuAudio.Play();
     }
 }
