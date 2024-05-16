@@ -12,6 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 0d2ca3fc3f5d61542bcb3c8669a47a82
   - enabled: 1
+    path: Assets/Scenes/NewsReport.unity
+    guid: 68d2f7a023b71a040854adb7df7d1414
+  - enabled: 1
+    path: Assets/Scenes/UFOVideo.unity
+    guid: dd8e17131644c7e47a06152cd77a3315
+  - enabled: 1
     path: Assets/Scenes/Trainvasion.unity
     guid: cfe1e8a4e09001842a90574b402344a4
   - enabled: 1
