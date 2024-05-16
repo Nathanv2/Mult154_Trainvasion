@@ -88,6 +88,10 @@ public class GameManager : MonoBehaviour
         CalculateEnemies();
         HeroesToSpawn(numPeople);
         BlockadeTrigger(blockadeAhead);
+        if (numPeople < 0)
+        {
+            numPeople = 0;
+        }
 
         if (uiManager == null)
         {
@@ -195,11 +199,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Bad Ending");
         }
-        else if(numPeople <= 25) 
+        else if(numPeople >10 && numPeople<=50) 
         {
             Debug.Log("Okay Ending");
         }
-        else if(numPeople <= 50)
+        else if(numPeople > 50)
         {
             Debug.Log("Good Ending");
         }

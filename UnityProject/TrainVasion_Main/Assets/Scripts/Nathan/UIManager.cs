@@ -181,11 +181,11 @@ public class UIManager : MonoBehaviour
         {
             badEndingText.gameObject.SetActive(true);
         }
-        else if(GM.numPeople <= 25) 
+        else if(GM.numPeople >10&&GM.numPeople<=25) 
         { 
             okayEndingText.gameObject.SetActive(true);
         }
-        else if(GM.numPeople <= 50)
+        else if(GM.numPeople >25)
         {
             goodEndingText.gameObject.SetActive(true);
         }

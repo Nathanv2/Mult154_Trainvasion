@@ -225,8 +225,8 @@ public class BattleStateMachine : MonoBehaviour
                     endOfBattleScreen.SetActive(true);
                     TextMeshProUGUI BattleResults = GameObject.Find("BattleStatusText").GetComponent<TextMeshProUGUI>();
                     BattleResults.text = "You lost the battle...And your people...we'll take your dignity too.";
-                    GM.numPeople = GM.numPeople - 1;
-                    GM.ResetPeopleNum();
+                    GM.numPeople -= 5;
+                    //GM.ResetPeopleNum();
                 }
                 break;
         }
