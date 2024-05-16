@@ -70,22 +70,16 @@ public class VolumeControl : MonoBehaviour
 
         for (int i = 0; i < masterSource.Length; i++)
         {
-            // Check if the current index is null
             if (masterSource[i] == null)
             {
-                // Find GameObjects with AudioSource component
                 GameObject[] musicObjects = GameObject.FindGameObjectsWithTag("Music");
 
-                // Check if any GameObjects were found
                 if (musicObjects.Length > 0)
                 {
-                    // Check if the index is within the bounds of the sfxObjects array
                     if (i < musicObjects.Length)
                     {
-                        // Get the AudioSource component from the GameObject
                         AudioSource audioSource = musicObjects[i].GetComponent<AudioSource>();
 
-                        // Assign AudioSource to sfxSource[i] if found
                         if (audioSource != null)
                         {
                             masterSource[i] = audioSource;
@@ -93,13 +87,11 @@ public class VolumeControl : MonoBehaviour
                     }
                     else
                     {
-                        // If the index is out of bounds, break the loop
                         break;
                     }
                 }
                 else
                 {
-                    // If no GameObjects were found, break the loop
                     break;
                 }
             }
@@ -107,22 +99,16 @@ public class VolumeControl : MonoBehaviour
 
         for (int i = 0; i < masterSource.Length; i++)
         {
-            // Check if the current index is null
             if (masterSource[i] == null)
             {
-                // Find GameObjects with AudioSource component
                 GameObject[] sfxObjects = GameObject.FindGameObjectsWithTag("SFX");
 
-                // Check if any GameObjects were found
                 if (sfxObjects.Length > 0)
                 {
-                    // Check if the index is within the bounds of the sfxObjects array
                     if (i < sfxObjects.Length)
-                    {
-                        // Get the AudioSource component from the GameObject                
+                    {        
                         AudioSource audioSource = sfxObjects[i].GetComponent<AudioSource>();
 
-                        // Assign AudioSource to sfxSource[i] if found
                         if (audioSource != null)
                         {
                             masterSource[i] = audioSource;
@@ -130,13 +116,11 @@ public class VolumeControl : MonoBehaviour
                     }
                     else
                     {
-                        // If the index is out of bounds, break the loop
                         break;
                     }
                 }
                 else
                 {
-                    // If no GameObjects were found, break the loop
                     break;
                 }
             }
@@ -147,22 +131,16 @@ public class VolumeControl : MonoBehaviour
 
         for (int i = 0; i < musicSource.Length; i++)
         {
-            // Check if the current index is null
             if (musicSource[i] == null)
             {
-                // Find GameObjects with AudioSource component
                 GameObject[] musicObjects = GameObject.FindGameObjectsWithTag("Music");
 
-                // Check if any GameObjects were found
                 if (musicObjects.Length > 0)
                 {
-                    // Check if the index is within the bounds of the sfxObjects array
                     if (i < musicObjects.Length)
                     {
-                        // Get the AudioSource component from the GameObject
                         AudioSource audioSource = musicObjects[i].GetComponent<AudioSource>();
 
-                        // Assign AudioSource to sfxSource[i] if found
                         if (audioSource != null)
                         {
                             musicSource[i] = audioSource;
@@ -170,13 +148,11 @@ public class VolumeControl : MonoBehaviour
                     }
                     else
                     {
-                        // If the index is out of bounds, break the loop
                         break;
                     }
                 }
                 else
                 {
-                    // If no GameObjects were found, break the loop
                     break;
                 }
             }
@@ -184,22 +160,16 @@ public class VolumeControl : MonoBehaviour
 
         for (int i = 0; i < sfxSource.Length; i++)
         {
-            // Check if the current index is null
             if (sfxSource[i] == null)
             {
-                // Find GameObjects with AudioSource component
                 GameObject[] sfxObjects = GameObject.FindGameObjectsWithTag("SFX");
 
-                // Check if any GameObjects were found
                 if (sfxObjects.Length > 0)
                 {
-                    // Check if the index is within the bounds of the sfxObjects array
                     if (i < sfxObjects.Length)
                     {
-                        // Get the AudioSource component from the GameObject
                         AudioSource audioSource = sfxObjects[i].GetComponent<AudioSource>();
 
-                        // Assign AudioSource to sfxSource[i] if found
                         if (audioSource != null)
                         {
                             sfxSource[i] = audioSource;
@@ -207,24 +177,22 @@ public class VolumeControl : MonoBehaviour
                     }
                     else
                     {
-                        // If the index is out of bounds, break the loop
                         break;
                     }
                 }
                 else
                 {
-                    // If no GameObjects were found, break the loop
                     break;
                 }
             }
         }
 
 
-        pleasework();
+        UpdateVolumeValues();
 
     }
 
-    void pleasework()
+    void UpdateVolumeValues()
     {
         for (int i = 0; i < sfxSource.Length; i++)
         {
