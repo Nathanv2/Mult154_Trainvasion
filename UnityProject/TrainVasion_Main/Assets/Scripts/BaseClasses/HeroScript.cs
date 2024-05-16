@@ -7,6 +7,7 @@ public class HeroScript : BaseClass
 {
     //Healing??
     public bool hasHealingCapabilities = false;
+    public bool didHeal = false;
 
     //Stats
     public int stamina;

@@ -380,8 +380,10 @@ public class BattleStateMachine : MonoBehaviour
         {
             HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentHealth += chooseSpecial.healAmount;
             HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentMp -= chooseSpecial.healCost;
+            
             if (chooseSpecial.name == "First Aid")
             {
+                HeroesToManage[0].GetComponent<HeroStateMachine>().hero.didHeal = true;
                 HeroesToManage[0].GetComponent<HeroStateMachine>().hero.currentAttack = 0;
                 
             }

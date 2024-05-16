@@ -169,10 +169,17 @@ public class HeroStateMachine : MonoBehaviour
         while (MoveTowardsStart(firstPosition))
         {
             StartCoroutine(ResetStats());
+            if (hero.didHeal == true)
+            {
+                StartCoroutine(ResetCooldown());
+            }
             yield return null;
         }
 
+       
+
         //remove this performer from the list in BSM
+        
         BSM.PerformList.RemoveAt(0);
         //reset BSM -> set to wait
         if (BSM.battleStates != BattleStateMachine.PerformAction.WIN && BSM.battleStates != BattleStateMachine.PerformAction.LOSE)
@@ -245,7 +252,22 @@ public class HeroStateMachine : MonoBehaviour
 
         hero.currentAttack = hero.baseAttack;
         hero.currentDefense= hero.baseDefense;
-       
+
+
+        yield return null;
+
+        
+    }
+
+    public IEnumerator ResetCooldown()
+    {
+        cur_cooldown = max_cooldown;
+
+
+        yield return new WaitForSeconds(1f);
+
+        cur_cooldown = max_cooldown;
+        hero.didHeal = false;
 
         yield return null;
     }
