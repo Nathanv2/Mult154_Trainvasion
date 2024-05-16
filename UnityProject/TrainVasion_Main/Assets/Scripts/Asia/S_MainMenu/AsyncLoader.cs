@@ -27,7 +27,7 @@ public class AsyncLoader : MonoBehaviour
     {
         if (loadingSlider.value == 2)
         {
-            SceneManager.LoadScene("Trainvasion", LoadSceneMode.Additive);
+            SceneManager.LoadScene("NewsReport", LoadSceneMode.Additive);
             loadingScreen.SetActive(false);
             LoadedScreen = false;
             loadingSlider.value = 0;
