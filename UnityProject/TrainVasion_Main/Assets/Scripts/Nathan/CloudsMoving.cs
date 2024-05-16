@@ -12,7 +12,7 @@ public class CloudsMoving : MonoBehaviour
     {
         transform.Translate(direction * speed * Time.deltaTime);
 
-        if(transform.position.x >= 400)
+        if(transform.position.x >= 1300)
         {
             Destroy(gameObject);
         }
