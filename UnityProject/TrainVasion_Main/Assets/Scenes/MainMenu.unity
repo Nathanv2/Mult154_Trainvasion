@@ -7455,7 +7455,11 @@ MonoBehaviour:
   buttonAudio: {fileID: 1467127297}
   mainMenuAudio: {fileID: 1256428617}
   trainvasionAudioComponent: {fileID: 0}
+  explorationAudioComponent: {fileID: 0}
+  aliencolliderAudioComponent: {fileID: 0}
   trainvasionAudio: {fileID: 0}
+  explorationAudio: {fileID: 0}
+  aliencolliderAudio: {fileID: 0}
 --- !u!4 &1457187876
 Transform:
   m_ObjectHideFlags: 0
@@ -9970,8 +9974,8 @@ MonoBehaviour:
   loadingScreen: {fileID: 1798791696}
   mainMenu: {fileID: 952844087}
   loadingSlider: {fileID: 765288354}
-  mainMenuCanvas: {fileID: 0}
-  mainmenucanvasComponent: {fileID: 0}
+  mainMenuCanvas: {fileID: 252368720}
+  mainmenucanvasComponent: {fileID: 952844090}
   MainCamera: {fileID: 2071846487}
   audioManager: {fileID: 1457187875}
 --- !u!4 &2024998815

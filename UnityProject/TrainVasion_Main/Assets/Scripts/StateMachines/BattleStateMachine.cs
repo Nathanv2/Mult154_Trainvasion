@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class BattleStateMachine : MonoBehaviour
 {
+    public AudioManager audioManager;
     public enum PerformAction
     {
         WAIT,
@@ -253,6 +254,8 @@ public class BattleStateMachine : MonoBehaviour
                 HeroInputDone();
                 break;
         }
+
+        audioManager = FindAnyObjectByType<AudioManager>();
     }
 
     public void CollectActions(HandleTurns input)
@@ -419,6 +422,7 @@ public class BattleStateMachine : MonoBehaviour
         SceneManager.UnloadSceneAsync("Combat");
         GM.isOnMainGame = true;
         GM.EnableObjects();
+        audioManager.trainvasionAudioComponent.Play();
     }
 
    

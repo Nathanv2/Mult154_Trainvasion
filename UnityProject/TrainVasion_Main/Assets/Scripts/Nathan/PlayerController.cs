@@ -86,7 +86,6 @@ public class PlayerController : MonoBehaviour
         Vector3 direction = (targetPosition - transform.position).normalized;
         Vector3 newPosition = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * movementSpeed);
         rbPlayer.MovePosition(newPosition);
-
         if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
         {
             isMoving = false;
@@ -125,6 +124,7 @@ public class PlayerController : MonoBehaviour
             stopObject = other.gameObject;
             TakeDamage();
             transform.position = new Vector3 (targetPosition.x, 5, targetPosition.z);
+            audioSource.Stop();
 
             Debug.Log("Rescue the people or leave them to suffer!");
         }
