@@ -19,6 +19,7 @@ public class AsyncLoader : MonoBehaviour
 
     public GameObject MainCamera;
     public AudioManager audioManager;
+    public GameManager gameManager;
 
     private bool LoadedScreen = false;
 
@@ -27,13 +28,14 @@ public class AsyncLoader : MonoBehaviour
         if (loadingSlider.value == 2)
         {
             SceneManager.LoadScene("Trainvasion", LoadSceneMode.Additive);
-            loadingSlider.enabled = false; loadingScreen.SetActive(false);
+            loadingScreen.SetActive(false);
             LoadedScreen = false;
             loadingSlider.value = 0;
             MainCamera.gameObject.SetActive(false);
             audioManager.mainMenuAudio.Stop();
+            gameManager.isOnMainGame = true;
         }
-
+        gameManager = FindAnyObjectByType<GameManager>();
         mainMenuCanvas = GameObject.Find("MainMenu");
 
         if (mainmenucanvasComponent == null)

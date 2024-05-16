@@ -8,13 +8,8 @@ public class SceneChange : MonoBehaviour
 
     public AsyncLoader mainmenuCanvas;
     public AudioManager audioManager;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameManager gameManager;
 
-    // Update is called once per frame
     void Update()
     {
         if (mainmenuCanvas == null)
@@ -23,6 +18,7 @@ public class SceneChange : MonoBehaviour
         }
 
         audioManager = FindAnyObjectByType<AudioManager>();
+        gameManager = FindAnyObjectByType<GameManager>();
           
     }
 
@@ -32,5 +28,6 @@ public class SceneChange : MonoBehaviour
         mainmenuCanvas.EnableMainMenuCanvas();
         mainmenuCanvas.MainCamera.SetActive(true);
         audioManager.mainMenuAudio.Play();
+        gameManager.isOnMainGame = false;
     }
 }

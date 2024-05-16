@@ -170,6 +170,12 @@ public class GameManager : MonoBehaviour
             gameOver = false;
             Time.timeScale = 1;
         }
+        
+        if (energyBar.slider == null)
+        {
+            gameOver = false;
+            Time.timeScale = 1;
+        }
     }
 
     public void FindStuff()
