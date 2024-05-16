@@ -54,15 +54,10 @@ public class PlayerController : MonoBehaviour
         {
             Map.SetActive(true);
         }
-        else if(Input.GetKeyDown(KeyCode.Space)) 
+        else if(Input.GetKeyUp(KeyCode.M))
         {
             Map.SetActive(false);
         }
-        
-        /*if(Input.GetKeyUp(KeyCode.M))
-        {
-            Map.SetActive(false);
-        }*/
     }
 
     void FixedUpdate()
