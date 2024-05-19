@@ -104,9 +104,7 @@ public class UIManager : MonoBehaviour
 
     public void RemoveBlockadeButton()
     {
-        removeBlockade.gameObject.SetActive(false);
-        goBack.gameObject.SetActive(false);
-        playerController.canMove = true;
+        GM.DestroyBlockade();
     }
 
     public void GoBackButton()
@@ -168,10 +166,6 @@ public class UIManager : MonoBehaviour
                 rotatePlayer.RotatePlayerRight();
                 StartCoroutine(ButtonCooldown());
             }
-            else if (other.gameObject.CompareTag("Backward Arrow"))
-            {
-
-            }
         }
     }
 
@@ -213,6 +207,7 @@ public class UIManager : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("Trainvasion");
         SceneManager.LoadScene("Trainvasion", LoadSceneMode.Additive);
+        GM.numPeople = 0;
     }
 
     /*public void PlayMainMusic()

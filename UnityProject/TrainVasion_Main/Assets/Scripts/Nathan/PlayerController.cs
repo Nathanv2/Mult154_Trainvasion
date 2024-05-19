@@ -223,6 +223,7 @@ public class PlayerController : MonoBehaviour
             UImanager.blockadeMenu.SetActive(false);
             UImanager.blockadeFail.SetActive(false);
             UImanager.blockadeButton.SetActive(false);
+            GM.blockades.Clear();
         }
     }
 }

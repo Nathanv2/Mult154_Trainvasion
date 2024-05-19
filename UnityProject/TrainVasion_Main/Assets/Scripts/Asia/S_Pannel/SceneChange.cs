@@ -29,5 +29,6 @@ public class SceneChange : MonoBehaviour
         mainmenuCanvas.MainCamera.SetActive(true);
         audioManager.mainMenuAudio.Play();
         gameManager.isOnMainGame = false;
+        gameManager.numPeople = 0;
     }
 }
