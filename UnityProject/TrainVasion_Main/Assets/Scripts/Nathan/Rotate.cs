@@ -22,7 +22,7 @@ public class Rotate : MonoBehaviour
 
         while (currentAngle < targetAngle)
         {
-            float rotation = speed * Time.deltaTime;
+            float rotation = Mathf.Min(speed * Time.deltaTime, targetAngle - currentAngle); // Limit rotation to avoid overshooting
             transform.Rotate(Vector3.down, rotation);
             currentAngle += rotation;
             yield return null;
@@ -35,7 +35,7 @@ public class Rotate : MonoBehaviour
 
         while (currentAngle < targetAngle)
         {
-            float rotation = speed * Time.deltaTime;
+            float rotation = Mathf.Min(speed * Time.deltaTime, targetAngle - currentAngle); // Limit rotation to avoid overshooting
             transform.Rotate(Vector3.up, rotation);
             currentAngle += rotation;
             yield return null;

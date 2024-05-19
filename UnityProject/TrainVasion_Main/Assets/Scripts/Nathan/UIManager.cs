@@ -153,18 +153,27 @@ public class UIManager : MonoBehaviour
             {
                 blockadeMenu.SetActive(false);
                 rayCast.ActivateMovement();
+                rayCast.onStop = false;
             }
             else if (other.gameObject.CompareTag("Left Arrow") && canClick)
             {
                 rayCast.RotateRay(1, 1);
                 rotatePlayer.RotatePlayerLeft();
                 StartCoroutine(ButtonCooldown());
+                rayCast.leftButtonImage.enabled = false;
+                rayCast.leftButtonClick.enabled = false;
+                rayCast.rightButtonImage.enabled = false;
+                rayCast.rightButtonClick.enabled = false;
             }
             else if (other.gameObject.CompareTag("Right Arrow") && canClick)
             {
                 rayCast.RotateRay(0, 0);
                 rotatePlayer.RotatePlayerRight();
                 StartCoroutine(ButtonCooldown());
+                rayCast.leftButtonImage.enabled = false;
+                rayCast.leftButtonClick.enabled = false;
+                rayCast.rightButtonImage.enabled = false;
+                rayCast.rightButtonClick.enabled = false;
             }
         }
     }

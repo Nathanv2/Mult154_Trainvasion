@@ -120,6 +120,7 @@ public class PlayerController : MonoBehaviour
             TakeDamage();
             transform.position = new Vector3 (targetPosition.x, 5, targetPosition.z);
             audioSource.Stop();
+            raycast.onStop = true;
 
             Debug.Log("Rescue the people or leave them to suffer!");
         }
