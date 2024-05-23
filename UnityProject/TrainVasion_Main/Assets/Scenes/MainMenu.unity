@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.14559887, g: 0.35838714, b: 0.23087232, a: 1}
+  m_IndirectSpecularColor: {r: 0.12293842, g: 0.3443935, b: 0.17651072, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10346,6 +10346,7 @@ MonoBehaviour:
   mainmenucanvasComponent: {fileID: 952844090}
   MainCamera: {fileID: 2071846487}
   audioManager: {fileID: 1457187875}
+  gameManager: {fileID: 0}
 --- !u!4 &2024998815
 Transform:
   m_ObjectHideFlags: 0
@@ -10626,11 +10627,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2db397fce9f159347b727b275769152f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  masterVolume: {fileID: 0}
   musicVolume: {fileID: 583005649}
   sfxVolume: {fileID: 814445596}
-  masterSource: []
   musicSource:
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

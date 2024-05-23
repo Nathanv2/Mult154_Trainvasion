@@ -9,6 +9,13 @@ using UnityEngine.SceneManagement;
 public class BattleStateMachine : MonoBehaviour
 {
     public AudioManager audioManager;
+    public AudioSource combatAudio;
+    public PlayerController playerController;
+    public AudioSource victoryAudio;
+    public AudioSource loseAudio;
+    private bool hasPlayedVictory = false;
+    private bool hasPlayedLose = false;
+
     public enum PerformAction
     {
         WAIT,
@@ -129,6 +136,7 @@ public class BattleStateMachine : MonoBehaviour
 
     private void Start()
     {
+        combatAudio.Play();
         //GM = GameObject.Find("Game Manager").GetComponent<GameManager>();
 
         battleStates = PerformAction.WAIT;
@@ -144,6 +152,7 @@ public class BattleStateMachine : MonoBehaviour
     }
     private void Update()
     {
+        playerController = FindAnyObjectByType<PlayerController>();
         switch (battleStates)
         {
             case (PerformAction.WAIT):
@@ -207,7 +216,13 @@ public class BattleStateMachine : MonoBehaviour
 
             case (PerformAction.WIN):
                 {
-                    Debug.Log("You won the battle");
+                    if (!hasPlayedVictory)
+                    {
+                        combatAudio.Stop();
+                        victoryAudio.Play();
+                        hasPlayedVictory = true;
+                        Debug.Log("You won the battle");
+                    }
                     for (int i = 0; i < HerosInBattle.Count; i++)
                     {
                         HerosInBattle[i].GetComponent<HeroStateMachine>().currentState = HeroStateMachine.TurnState.WAITING;
@@ -215,13 +230,19 @@ public class BattleStateMachine : MonoBehaviour
                     endOfBattleScreen.SetActive(true);
                     TextMeshProUGUI BattleResults = GameObject.Find("BattleStatusText").GetComponent<TextMeshProUGUI>();
                     BattleResults.text = "You won the battle!!!";
-
+                    playerController.RescuePeople();
                 }
                 break;
 
             case (PerformAction.LOSE):
                 {
-                    Debug.Log("You lost the battle");
+                    if (!hasPlayedLose)
+                    {
+                        combatAudio.Stop();
+                        loseAudio.Play();
+                        hasPlayedLose = true;
+                        Debug.Log("You lost the battle");
+                    }
                     endOfBattleScreen.SetActive(true);
                     TextMeshProUGUI BattleResults = GameObject.Find("BattleStatusText").GetComponent<TextMeshProUGUI>();
                     BattleResults.text = "You lost the battle...And your people...we'll take your dignity too.";
