@@ -43,6 +43,7 @@ TagManager:
   - Music Slider
   - SFX Slider
   - Music
+  - Barrier
   layers:
   - Default
   - TransparentFX

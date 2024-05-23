@@ -106,6 +106,11 @@ public class Raycasting : MonoBehaviour
                 leftButtonImage.enabled = true;
                 leftButtonClick.enabled = true;
             }
+            else if(hit.collider.tag == ("Barrier"))
+            {
+                leftButtonImage.enabled = false;
+                leftButtonClick.enabled = false;
+            }
         }
 
         Player = transform.position;
