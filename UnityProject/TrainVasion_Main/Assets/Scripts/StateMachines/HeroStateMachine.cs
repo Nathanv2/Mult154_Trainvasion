@@ -245,6 +245,10 @@ public class HeroStateMachine : MonoBehaviour
     {
         stats.HeroHP.text = "HP: " + hero.currentHealth;
         stats.HeroMP.text = "MP: " + hero.currentMp;
+        if (hero.currentMp < 0)
+        {
+            hero.currentMp = 0;
+        }
     }
     public IEnumerator ResetStats()
     {
