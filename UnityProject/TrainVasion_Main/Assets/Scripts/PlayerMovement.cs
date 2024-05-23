@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
         float horMove = Input.GetAxis("Horizontal");
         float verMove = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(-horMove, 0f, -verMove) * speed * Time.deltaTime;
+        Vector3 movement = new Vector3(horMove, 0f, verMove) * speed * Time.deltaTime;
 
         transform.Translate(movement);
 
